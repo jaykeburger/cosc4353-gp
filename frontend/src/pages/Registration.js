@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Flex, VStack, Card, CardBody, Input, Button, CardHeader, Heading, Badge, HStack, Spacer } from '@chakra-ui/react';
 import { useFormik } from 'formik';
+import Layout from '../Layout';
 
 export default function Registration() {
   const [submitted, setSubmitted] = useState(false);
@@ -43,6 +44,7 @@ export default function Registration() {
                   type="text"
                   name="username"
                   placeholder="Username"
+                  isRequired
                   onChange={formik.handleChange}
                   value={formik.values.username}
                 />
@@ -53,6 +55,7 @@ export default function Registration() {
               <HStack width={250} spacing={5}>
                   <Input
                     width={200}
+                    isRequired
                     type={show1 ? 'text' : 'password'}
                     name = 'password'
                     placeholder='Enter password'
@@ -69,6 +72,7 @@ export default function Registration() {
                     type={show2 ? 'text' : 'password'}
                     placeholder='Re-Enter password'
                     name = 'repassword'
+                    isRequired
                     onChange={formik.handleChange}
                     value={formik.values.repassword}
                   />
