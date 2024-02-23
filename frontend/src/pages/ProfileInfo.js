@@ -19,11 +19,13 @@ export default function Profile() {
 
     validate: values => {
       const errors = {};
-      // Zipcode validation: numeric and length check
-      if (!/^\d+$/.test(values.zipcode)) { // Checks if only digits
+      if (!/^\d+$/.test(values.zipcode)) { 
         errors.zipcode = 'Zipcode must be numeric';
       } else if (values.zipcode.length < 5 || values.zipcode.length > 9) {
         errors.zipcode = 'Zipcode must be between 5 and 9 digits';
+      }
+      if (!/[A-Za-z]/.test(values.city)) {
+        errors.city = 'City must only contain letters';
       }
       return errors;
     },
@@ -83,6 +85,12 @@ export default function Profile() {
                         onChange={formik.handleChange}
                         value={formik.values.city}
                         />
+                         {formik.errors.city && formik.touched.city && (
+                            <FormHelperText 
+                            color="red.500">{
+                              formik.errors.city}
+                              </FormHelperText>
+                          )}
                 </FormControl>
                 <FormControl isRequired>
                     <FormLabel>State</FormLabel>
