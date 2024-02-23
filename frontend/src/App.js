@@ -6,6 +6,7 @@ import ClientFuelHistory from './pages/ClientFuelHistory';
 import ProfileInfo from './pages/ProfileInfo';
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
+import FuelQuote from './pages/FuelQuote';
 
 function App() {
   // 2. Wrap ChakraProvider at the root of your app
@@ -25,7 +26,10 @@ function App() {
         <Route exact path="/login" element={<Login />}/>
       </Routes>
       <Routes>
-        <Route exact path="/homepage" element={<Homepage />}/>
+        <Route exact path="/fuel-quote" element={<FuelQuote />}/>
+      </Routes>
+      <Routes>
+        <Route exact path="/" element={<Homepage />}/>
       </Routes>
       </BrowserRouter>
     </ChakraProvider>
