@@ -2,6 +2,7 @@ import React from 'react';
 import { Stack, Flex, Text, Button } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom'; // Make sure to import RouterLink for navigation
 import '@fontsource/roboto';
+import Typewriter from "typewriter-effect";
 
 export default function Homepage() {
 
@@ -18,8 +19,22 @@ export default function Homepage() {
       
       <Flex flexGrow={1} alignItems="center" justifyContent="center" bgColor="green.300">
         <Stack spacing={0}>
-          <Text fontSize='100px' color="white" fontFamily="roboto">Fueling Your Journey,</Text>
-          <Text fontSize='100px' color="white" fontFamily="roboto">Empowering Your Choices.</Text>
+          <Text textAlign={'center'} fontSize='100px' color="white" fontFamily="roboto">
+          <Typewriter
+            options={{
+                autoStart: true,
+                loop: false,
+                delay: 150
+                }}
+            onInit={(typewriter) => {
+                typewriter
+                .typeString("Fueling Your Journey <br/>")
+                .pauseFor(100)
+                .typeString("Empowering Your Choices")
+                .start();
+            }}
+            />
+            </Text>
         </Stack>
       </Flex>
     </Flex>
