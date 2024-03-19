@@ -7,9 +7,13 @@ app.get('/', (req, res) => {
 
 // Include route files
 const usersRoute = require('./routes/users');
+const fuelHistoryRoute = require('./routes/fuelHistory');
+const registrationRoute = require('./routes/registration');
 
 // Use routes
 app.use('/users', usersRoute);
+app.use('/history', fuelHistoryRoute);
+app.use('/registration', registrationRoute);
 
 // Specify the port to listen on
 const port = 3000;

@@ -38,7 +38,7 @@ export default function Registration() {
         setSubmitted(true);
         return;
       }
-      alert(JSON.stringify(values, null, 2));
+      console.log(JSON.stringify(values, null, 2));
       navigate("/profile-info");
     },
   });
