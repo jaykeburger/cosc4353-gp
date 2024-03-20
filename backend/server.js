@@ -1,5 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+
+app.use(cors()); // Enable CORS for all routes
 
 app.get('/', (req, res) => {
     res.send('hello root node');// this gets executed when user visit http://localhost:3000/

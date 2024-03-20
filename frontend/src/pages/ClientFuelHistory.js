@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Flex,
   Table,
-  Thead,
   Tbody,
   Tr,
   Th,
@@ -15,101 +13,234 @@ import {
   Input,
   Button,
   Tag,
+  CardFooter,
 } from "@chakra-ui/react";
 import { CiSearch } from "react-icons/ci";
 import Layout from "../Layout.js";
+import axios from "axios";
+import { useFormik } from "formik";
 
 export default function ClientFuelHistory() {
+  const [history, setHistory] = useState([]);
+  const [errMessage, setErrMessage] = React.useState("");
+  const validateGallons = (values) => {
+    var errors = false;
+    if (
+      values.mingallons !== "" &&
+      values.maxgallons !== "" &&
+      values.mingallons > values.maxgallons
+    ) {
+      setErrMessage("Max gallons must be greater than or equal to min gallons");
+      errors = true;
+    }
+    return errors;
+  };
+  const validatePrice = (values) => {
+    var errors = false;
+    if (
+      values.minprice !== "" &&
+      values.maxprice !== "" &&
+      values.minprice > values.maxprice
+    ) {
+      setErrMessage("Max Price must be greater than or equal to min price");
+      errors = true;
+    }
+    return errors;
+  };
+  const validateDates = (values) => {
+    var errors = {};
+    errors = false;
+    if (
+      values.startdate !== "" &&
+      values.enddate !== "" &&
+      values.startdate > values.enddate
+    ) {
+      setErrMessage("End Date must be after the Start date");
+      errors = true;
+    }
+    return errors;
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      mingallons: "",
+      maxgallons: "",
+      minprice: "",
+      maxprice: "",
+      startdate: "",
+      enddate: "",
+    },
+    onSubmit: (values) => {
+      const errors = {
+        gallons: validateGallons(values),
+        dates: validateDates(values),
+        price: validatePrice(values),
+      };
+
+      // Check if there are any errors
+      if (errors.gallons || errors.dates || errors.price) {
+        // Handle errors, maybe show an alert or set an error state
+        return;
+      }
+      setErrMessage("");
+      axios
+        .get("http://localhost:3000/history/search", {
+          params: values,
+          headers: { "Content-Type": "application/json" },
+        })
+        .then((response) => {
+          console.log("Recieved:", response.data);
+          setHistory(response.data);
+        })
+        .catch((error) => {
+          console.log("Error: ", error);
+          setErrMessage("There was an error");
+        });
+    },
+  });
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/history")
+      .then((response) => {
+        // console.log("My response:", response.data);
+        setHistory(response.data);
+      })
+      .catch((error) => {
+        console.log("wuh oh", error);
+      });
+  }, []);
+
   return (
     <Layout>
-        <Card bgColor="green.300">
-          <VStack>
-            <CardHeader
-              bgColor="green.300"
-              textAlign="center"
-              fontWeight="bold"
-            >
-              Client Fueling History
-            </CardHeader>
-            <HStack>
-              <Tag width={90} height={10}>
-                Search by:
-              </Tag>
-              <Input bgColor="white" placeholder="Name" width={200}></Input>
+      <Card bgColor="green.300">
+        <VStack>
+          <CardHeader bgColor="green.300" textAlign="center" fontWeight="bold">
+            Client Fueling History
+          </CardHeader>
+          {errMessage && (
+            <Card textColor="red" alignSelf="center">
+              <CardFooter>{errMessage}</CardFooter>
+            </Card>
+          )}
+          <HStack spacing={20}>
+            <Tag width={90} height={10}>
+              Search by:
+            </Tag>
+            <form onSubmit={formik.handleSubmit}>
               <Input
                 bgColor="white"
-                placeholder="Minimum Price"
-                width={200}
-              ></Input>
-              <Input
-                bgColor="white"
-                placeholder="Maximum Price"
                 width={150}
+                placeholder="Name"
+                name="name"
+                fontSize="10px"
+                onChange={formik.handleChange}
+                value={formik.values.name}
               ></Input>
               <Input
                 bgColor="white"
-                placeholder="Before Date"
-                width={150}
+                name="mingallons"
+                placeholder="Min Gallons"
+                width={100}
+                fontSize="10px"
+                type="number"
+                onChange={formik.handleChange}
+                value={formik.values.mingallons}
               ></Input>
               <Input
                 bgColor="white"
-                placeholder="After Date"
-                width={150}
+                name="maxgallons"
+                placeholder="Max Gallons"
+                width={100}
+                fontSize="10px"
+                type="number"
+                onChange={formik.handleChange}
+                value={formik.values.maxgallons}
               ></Input>
-              <Button bgColor="white">
-                <CiSearch />
-              </Button>{" "}
-            </HStack>
-            <TableContainer bgColor="white">
-              <Table variant="simple">
-                <Thead>
+              <Input
+                bgColor="white"
+                name="minprice"
+                placeholder="Min Price"
+                width={100}
+                fontSize="10px"
+                type="number"
+                onChange={formik.handleChange}
+                value={formik.values.minprice}
+              ></Input>
+              <Input
+                bgColor="white"
+                placeholder="Max Price"
+                width={100}
+                name="maxprice"
+                fontSize="10px"
+                type="number"
+                onChange={formik.handleChange}
+                value={formik.values.maxprice}
+              ></Input>
+              <HStack>
+                <Tag size="sm">Start Date</Tag>
+                <Input
+                  placeholder="Start Date"
+                  size="md"
+                  type="date"
+                  bgColor="white"
+                  width={180}
+                  name="startdate"
+                  onChange={formik.handleChange}
+                  value={formik.values.startdate}
+                />
+                <Tag size="sm">End Date</Tag>
+                <Input
+                  placeholder="End Date"
+                  size="md"
+                  type="date"
+                  bgColor="white"
+                  // fontSize="1px"
+                  width={180}
+                  name="enddate"
+                  onChange={formik.handleChange}
+                  value={formik.values.enddate}
+                />
+                <Button size="lg" bgColor="white" type="submit">
+                  <CiSearch />
+                </Button>
+              </HStack>
+            </form>
+          </HStack>
+
+          <TableContainer bgColor="white">
+            <Table variant="simple">
+              <Tbody>
+                <Tr>
+                  <Th>Client Name</Th>
+                  <Th isNumeric>Gallons requested</Th>
+                  <Th>Delivery Address</Th>
+                  <Th>Delivery Date</Th>
+                  <Th isNumeric>Suggested Price</Th>
+                  <Th isNumeric>Total Amount Due</Th>
+                </Tr>
+                {history.length > 0 ? (
+                  history.map((value, index) => (
+                    <Tr key={index}>
+                      <Td>{value.clientname}</Td>
+                      <Td>{value.gallonsrequest}</Td>
+                      <Td>{value.shippingaddress}</Td>
+                      <Td>{value.deliverydate}</Td>
+                      <Td>{value.suggestedprice}</Td>
+                      <Td>{value.amountdue}</Td>
+                    </Tr>
+                  ))
+                ) : (
                   <Tr>
-                    <Th>Client Name</Th>
-                    <Th isNumeric>Gallons requested</Th>
-                    <Th>Delivery Address</Th>
-                    <Th>Delivery Date</Th>
-                    <Th isNumeric>Suggested Price</Th>
-                    <Th isNumeric>Total Amount Due</Th>
+                    <Td colSpan={5}>No past orders</Td>
                   </Tr>
-                </Thead>
-                <Tbody>
-                  <Tr>
-                    <Td>John Adams</Td>
-                    <Td>100</Td>
-                    <Td>123 Street, 77123, Houston, Texas</Td>
-                    <Td>1/1/2012</Td>
-                    <Td>$10000</Td>
-                    <Td>$15000</Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Jane Doe</Td>
-                    <Td>101</Td>
-                    <Td>456 Avenue, 98765, Austin, Texas</Td>
-                    <Td>2/15/2015</Td>
-                    <Td>$12000</Td>
-                    <Td>$8000</Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Alex Smith</Td>
-                    <Td>102</Td>
-                    <Td>789 Boulevard, 54321, Dallas, Texas</Td>
-                    <Td>7/30/2018</Td>
-                    <Td>$8000</Td>
-                    <Td>$3000</Td>
-                  </Tr>
-                  <Tr>
-                    <Td>Emily Johnson</Td>
-                    <Td>103</Td>
-                    <Td>321 Road, 24680, San Antonio, Texas</Td>
-                    <Td>11/20/2019</Td>
-                    <Td>$15000</Td>
-                    <Td>$5000</Td>
-                  </Tr>
-                </Tbody>
-              </Table>
-            </TableContainer>
-          </VStack>
-        </Card>
+                )}
+              </Tbody>
+            </Table>
+          </TableContainer>
+        </VStack>
+      </Card>
     </Layout>
   );
 }

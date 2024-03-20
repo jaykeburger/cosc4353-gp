@@ -56,22 +56,22 @@ router.get('/search', (req, res) => {
     const filters = req.query;
     const filteredUsers = data.filter(user => {
         let isValid = true;
+        console.log(filters);
         for (key in filters) {
-            // console.log(key)
-            if (key === 'clientname') {
-                isValid = isValid && user.clientname === filters.clientname;
-            }else if (key === 'mingallons') {
+            if (key === 'name' && filters.name !== '') {
+                isValid = isValid && user.clientname.includes(filters.name);
+            } else if (key === 'mingallons' && filters.mingallons !== '') {
                 isValid = isValid && user.gallonsrequest >= parseInt(filters.mingallons);
-            }else if (key === 'maxgallons') {
+            } else if (key === 'maxgallons' && filters.maxgallons !== '') {
                 isValid = isValid && user.gallonsrequest <= parseInt(filters.maxgallons);
-            }else if (key === 'minprice') {
+            }else if (key === 'minprice' && filters.minprice !== '') {
                 isValid = isValid && user.suggestedprice >= parseInt(filters.minprice);
-            }else if (key === 'maxprice') {
+            } else if (key === 'maxprice' && filters.maxprice !== '') {
                 isValid = isValid && user.suggestedprice <= parseInt(filters.maxprice);
-            }else if (key === 'beforedate') {
-                isValid = isValid && new Date(user.deliverydate) <= new Date(filters.beforedate);
-            } else if (key === 'afterdate') {
-                isValid = isValid && new Date(user.deliverydate) >= new Date(filters.afterdate);
+            } else if (key === 'startdate' && filters.startdate !== '') {
+                isValid = isValid && new Date(user.deliverydate) >= new Date(filters.startdate);
+            } else if (key === 'enddate' && filters.enddate !== '') {
+                isValid = isValid && new Date(user.deliverydate) <= new Date(filters.enddate);
             }
         }
         return isValid;

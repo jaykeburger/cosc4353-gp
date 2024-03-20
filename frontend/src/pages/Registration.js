@@ -11,9 +11,11 @@ import {
   Badge,
   HStack,
   Spacer,
+  CardFooter,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Registration() {
   const [submitted, setSubmitted] = useState(false);
@@ -21,16 +23,18 @@ export default function Registration() {
   const [show2, setShow2] = useState(false);
   const handleClick1 = () => setShow1(!show1);
   const handleClick2 = () => setShow2(!show2);
+  const [message, setMessage] = React.useState("");
+  const [errMessage, setErrMessage] = React.useState("");
   const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
       username: "",
       password: "",
-      repassword: "",
+      password_confirm: "",
     },
     onSubmit: (values) => {
-      if (values.password !== values.repassword) {
+      if (values.password !== values.password_confirm) {
         setSubmitted(true);
         return;
       }
@@ -38,8 +42,24 @@ export default function Registration() {
         setSubmitted(true);
         return;
       }
-      console.log(JSON.stringify(values, null, 2));
-      navigate("/profile-info");
+      console.log("Values: ", values);
+      axios
+        .post("http://localhost:3000/registration", values, {
+          headers: { "Content-Type": "application/json" },
+        })
+        .then((response) => {
+          console.log("Response.Data:", response.data);
+          if (response.data === "User registered successfully") {
+            navigate("/profile-info");
+          }
+          setMessage(response.data);
+          setErrMessage("");
+        })
+        .catch((error) => {
+          console.log("Error.Data: ", error);
+          setErrMessage("There was an error");
+          setMessage("");
+        });
     },
   });
 
@@ -63,6 +83,16 @@ export default function Registration() {
             Registration
           </Heading>
         </CardHeader>
+        {errMessage && (
+          <Card textColor="red" alignSelf="center">
+            <CardFooter>{errMessage}</CardFooter>
+          </Card>
+        )}
+        {message && (
+          <Card textColor="red" alignSelf="center">
+            <CardFooter>{message}</CardFooter>
+          </Card>
+        )}
         <CardBody>
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={5}>
@@ -101,10 +131,10 @@ export default function Registration() {
                   width={200}
                   type={show2 ? "text" : "password"}
                   placeholder="Re-Enter password"
-                  name="repassword"
+                  name="password_confirm"
                   isRequired
                   onChange={formik.handleChange}
-                  value={formik.values.repassword}
+                  value={formik.values.password_confirm}
                 />
                 <Button h="2.0rem" size="sm" onClick={handleClick2}>
                   {show2 ? "Hide" : "Show"}
@@ -113,8 +143,9 @@ export default function Registration() {
               <Spacer>
                 {submitted &&
                   (!formik.values.password ||
-                    !formik.values.repassword ||
-                    formik.values.password !== formik.values.repassword) && (
+                    !formik.values.password_confirm ||
+                    formik.values.password !==
+                      formik.values.password_confirm) && (
                     <Badge colorScheme="red">Passwords do not match</Badge>
                   )}
               </Spacer>

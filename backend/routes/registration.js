@@ -9,20 +9,20 @@ router.post('/', (req, res) => {
     const { username, password, password_confirm } = req.body
 
     if (password !== password_confirm) {
-        return res.status(401).send("Passwords do not match!");
+        return res.status(200).send("Passwords do not match!");
     }
     // Check if username is 'jappleseed'
     if (username === 'jappleseed') {
-        return res.status(402).send('This username is already in use');
+        return res.status(200).send('This username is already in use');
     }
     if (username.length < 5) {
-        return res.status(402).send('Username must be atleast 5 characters');
+        return res.status(200).send('Username must be atleast 5 characters');
     }
     if (username.includes(' ')) {
-        return res.status(402).send('Username cannot contain spaces');
+        return res.status(200).send('Username cannot contain spaces');
     }
     if (!/^[a-zA-Z0-9]+$/.test(username)) {
-        return res.status(402).send('Username cannot contain special characters');
+        return res.status(200).send('Username cannot contain special characters');
     }
     res.status(200).send('User registered successfully');
 });
