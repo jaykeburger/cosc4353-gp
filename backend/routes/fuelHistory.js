@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
@@ -52,35 +51,32 @@ router.get('/', (req, res) => {
     res.json(data);
 });
 
-//ALL NAMES
-router.post('/name', (req,res) =>{
-    const { name } = req.body;
-    const toSend = data.filter(element => element.clientname === name);
-    return res.json(toSend)
-});
-
-router.post('/name&min', (req,res) =>{
-    const { name } = req.body;
-    const toSend = data.filter(element => element.clientname === name);
-    return res.json(toSend)
-});
-
-router.post('/name&min&max', (req,res) =>{
-    const { name } = req.body;
-    const toSend = data.filter(element => element.clientname === name);
-    return res.json(toSend)
-});
-
-router.post('/name&min&max&before', (req,res) =>{
-    const { name } = req.body;
-    const toSend = data.filter(element => element.clientname === name);
-    return res.json(toSend)
-});
-
-router.post('/name&min&max&before%after', (req,res) =>{
-    const { name } = req.body;
-    const toSend = data.filter(element => element.clientname === name);
-    return res.json(toSend)
+//handling search
+router.get('/search', (req, res) => {
+    const filters = req.query;
+    const filteredUsers = data.filter(user => {
+        let isValid = true;
+        for (key in filters) {
+            // console.log(key)
+            if (key === 'clientname') {
+                isValid = isValid && user.clientname === filters.clientname;
+            }else if (key === 'mingallons') {
+                isValid = isValid && user.gallonsrequest >= parseInt(filters.mingallons);
+            }else if (key === 'maxgallons') {
+                isValid = isValid && user.gallonsrequest <= parseInt(filters.maxgallons);
+            }else if (key === 'minprice') {
+                isValid = isValid && user.suggestedprice >= parseInt(filters.minprice);
+            }else if (key === 'maxprice') {
+                isValid = isValid && user.suggestedprice <= parseInt(filters.maxprice);
+            }else if (key === 'beforedate') {
+                isValid = isValid && new Date(user.deliverydate) <= new Date(filters.beforedate);
+            } else if (key === 'afterdate') {
+                isValid = isValid && new Date(user.deliverydate) >= new Date(filters.afterdate);
+            }
+        }
+        return isValid;
+    });
+    res.send(filteredUsers);
 });
 
 // export the router module so that server.js file can use it
