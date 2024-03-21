@@ -24,8 +24,8 @@ app.use('/profileInfo', profileInfoRoute);
 const port = 3000;
 
 // Start the server
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Node.js HTTP server is running on port ${port}`);
 });
 
-
+module.exports = server;
