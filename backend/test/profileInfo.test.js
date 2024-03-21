@@ -154,6 +154,18 @@ describe('Profile Info Endpoint', () => {
         expect(response.text).toContain('Zipcode must be at least 5 characters');  
   });
 
+  it('should return a 200 if all fields are inputted correctly', async () => {
+    const response = await request(app).post('/profileInfo').send({ 
+      "name" : "John Doe",
+      "add1" : "123 Appleseed",
+      "add2" : "",
+      "city" : "Houston",
+      "state" : "TX",
+      "zipcode" : "12345"
+       }); 
+        expect(response.status).toBe(200);
+        expect(response.text).toContain('User profile information completed succesfully.');  
+  });
   afterAll((done) => {
     app.close(done);
   });
