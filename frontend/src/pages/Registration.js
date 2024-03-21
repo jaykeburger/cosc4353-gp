@@ -8,7 +8,6 @@ import {
   Button,
   CardHeader,
   Heading,
-  Badge,
   HStack,
   Spacer,
   CardFooter,
@@ -18,7 +17,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Registration() {
-  const [submitted, setSubmitted] = useState(false);
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const handleClick1 = () => setShow1(!show1);
@@ -34,14 +32,6 @@ export default function Registration() {
       password_confirm: "",
     },
     onSubmit: (values) => {
-      if (values.password !== values.password_confirm) {
-        setSubmitted(true);
-        return;
-      }
-      if (values.username === "" || values.username.includes(" ")) {
-        setSubmitted(true);
-        return;
-      }
       console.log("Values: ", values);
       axios
         .post("http://localhost:3000/registration", values, {
@@ -49,16 +39,21 @@ export default function Registration() {
         })
         .then((response) => {
           console.log("Response.Data:", response.data);
-          if (response.data === "User registered successfully") {
+          if (response.status === 200) {
             navigate("/profile-info");
           }
           setMessage(response.data);
-          setErrMessage("");
+          setErrMessage('');
         })
         .catch((error) => {
-          console.log("Error.Data: ", error);
-          setErrMessage("There was an error");
-          setMessage("");
+          if (error.response && error.response.data) {
+    console.log("Error message:", error.response.data);
+    // Handle the error message as needed
+    setErrMessage(error.response.data)
+  } else {
+    console.log("Error:", error.message);
+    // Handle other types of errors
+  }
         });
     },
   });
@@ -107,9 +102,6 @@ export default function Registration() {
                   value={formik.values.username}
                 />
                 <Spacer>
-                  {submitted && !formik.values.username && (
-                    <Badge colorScheme="red">Invalid Username</Badge>
-                  )}
                 </Spacer>
               </VStack>
               <HStack width={250} spacing={5}>
@@ -141,13 +133,6 @@ export default function Registration() {
                 </Button>
               </HStack>
               <Spacer>
-                {submitted &&
-                  (!formik.values.password ||
-                    !formik.values.password_confirm ||
-                    formik.values.password !==
-                      formik.values.password_confirm) && (
-                    <Badge colorScheme="red">Passwords do not match</Badge>
-                  )}
               </Spacer>
               <Button type="submit">Submit</Button>
             </VStack>

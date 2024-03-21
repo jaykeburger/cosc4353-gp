@@ -72,6 +72,7 @@ export default function ClientFuelHistory() {
       enddate: "",
     },
     onSubmit: (values) => {
+      console.log('Sending: ', values);
       const errors = {
         gallons: validateGallons(values),
         dates: validateDates(values),
@@ -95,7 +96,7 @@ export default function ClientFuelHistory() {
         })
         .catch((error) => {
           console.log("Error: ", error);
-          setErrMessage("There was an error");
+          setErrMessage(error.response.data);
         });
     },
   });

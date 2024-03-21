@@ -7,8 +7,16 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import { FaBars } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+
+  const navigate = useNavigate();
+
+  const handleRedirect = (path) =>{
+    navigate(path);
+  }
+
   return (
     <HStack
       bg="green.200"
@@ -22,10 +30,10 @@ export default function Header() {
           <FaBars />
         </MenuButton>
         <MenuList>
-          <MenuItem>Profile Management</MenuItem>
-          <MenuItem>Create Quote</MenuItem>
-          <MenuItem>Fuel History</MenuItem>
-          <MenuItem>Logout</MenuItem>
+          <MenuItem onClick={() => handleRedirect('/profile-info')}>Profile Management</MenuItem>
+          <MenuItem onClick={() => handleRedirect('/fuel-quote')}>Create Quote</MenuItem>
+          <MenuItem onClick={() => handleRedirect('/history')}>Fuel History</MenuItem>
+          <MenuItem onClick={() => handleRedirect('/')}>Logout</MenuItem>
         </MenuList>
       </Menu>
     </HStack>
