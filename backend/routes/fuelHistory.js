@@ -59,24 +59,31 @@ router.get('/search', (req, res) => {
         for (key in filters) {
             if (key === 'name' && filters.name !== '') {
                 if (!/^[a-zA-Z\s]+$/.test(filters.name) || filters.name.length > 50) {
-                    return res.status(400).send('Invalid input for name');
+                    res.status(400).send('Invalid input for name');
+                    return isValid;
                 }
                 isValid = isValid && user.clientname.includes(filters.name);
             } else if (key === 'mingallons' && filters.mingallons !== '') {
-                if (filters.mingallons !== '' && filters.maxgallons !== '' && filters.maxgallons < filters.mingallons) {
-                    return res.status(400).send('Maximum gallons must be less than minimum');
+                if (filters.maxgallons !== '' && parseInt(filters.maxgallons) < parseInt(filters.mingallons)) {
+                    res.status(400).send('Max gallons must be greater than or equal to min gallons');
+                    return isValid;
                 }
                 isValid = isValid && user.gallonsrequest >= parseInt(filters.mingallons);
             } else if (key === 'maxgallons' && filters.maxgallons !== '') {
-                if (filters.mingallons !== '' && filters.maxgallons !== '' && filters.maxgallons < filters.mingallons) {
-                    return res.status(400).send('Maximum gallons must be less than minimum');
-                }
                 isValid = isValid && user.gallonsrequest <= parseInt(filters.maxgallons);
             }else if (key === 'minprice' && filters.minprice !== '') {
+                if (filters.maxprice !== '' && parseInt(filters.maxprice) < parseInt(filters.minprice)) {
+                    res.status(400).send('Max Price must be greater than or equal to min price');
+                    return isValid;
+                }
                 isValid = isValid && user.suggestedprice >= parseInt(filters.minprice);
             } else if (key === 'maxprice' && filters.maxprice !== '') {
                 isValid = isValid && user.suggestedprice <= parseInt(filters.maxprice);
             } else if (key === 'startdate' && filters.startdate !== '') {
+                if (filters.enddate !== '' && filters.enddate < filters.startdate) {
+                    res.status(400).send('End Date must be after the Start date');
+                    return isValid;
+                }
                 isValid = isValid && new Date(user.deliverydate) >= new Date(filters.startdate);
             } else if (key === 'enddate' && filters.enddate !== '') {
                 isValid = isValid && new Date(user.deliverydate) <= new Date(filters.enddate);
