@@ -48,21 +48,29 @@ const data = [
     ]
 // Define a route
 router.get('/', (req, res) => {
-    res.json(data);
+    res.status(200).json(data);
 });
 
-//handling search
+// //handling search
 router.get('/search', (req, res) => {
     const filters = req.query;
     const filteredUsers = data.filter(user => {
         let isValid = true;
-        console.log(filters);
         for (key in filters) {
             if (key === 'name' && filters.name !== '') {
+                if (!/^[a-zA-Z\s]+$/.test(filters.name) || filters.name.length > 50) {
+                    return res.status(400).send('Invalid input for name');
+                }
                 isValid = isValid && user.clientname.includes(filters.name);
             } else if (key === 'mingallons' && filters.mingallons !== '') {
+                if (filters.mingallons !== '' && filters.maxgallons !== '' && filters.maxgallons < filters.mingallons) {
+                    return res.status(400).send('Maximum gallons must be less than minimum');
+                }
                 isValid = isValid && user.gallonsrequest >= parseInt(filters.mingallons);
             } else if (key === 'maxgallons' && filters.maxgallons !== '') {
+                if (filters.mingallons !== '' && filters.maxgallons !== '' && filters.maxgallons < filters.mingallons) {
+                    return res.status(400).send('Maximum gallons must be less than minimum');
+                }
                 isValid = isValid && user.gallonsrequest <= parseInt(filters.maxgallons);
             }else if (key === 'minprice' && filters.minprice !== '') {
                 isValid = isValid && user.suggestedprice >= parseInt(filters.minprice);
@@ -76,8 +84,7 @@ router.get('/search', (req, res) => {
         }
         return isValid;
     });
-    res.send(filteredUsers);
+    res.status(200).send(filteredUsers);
 });
 
-// export the router module so that server.js file can use it
 module.exports = router;

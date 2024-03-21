@@ -88,6 +88,15 @@ it('should return a 400 status for usernames with a space', async () => {
     expect(response.text).toContain('Password must contain special characters');
   });
 
+  it('should return a 200 status for successful entries', async () => {
+    const response = await request(app).post('/registration').send({ 
+      username: 'apple',
+      password: '12345!',
+      password_confirm: '12345!'
+    });
+    expect(response.status).toBe(200);
+  });
+
   afterAll((done) => {
     app.close(done);
   });
