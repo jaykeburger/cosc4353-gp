@@ -1,46 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1711079971088" clover="3.2.0">
-  <project timestamp="1711079971088" name="All files">
-    <metrics statements="148" coveredstatements="144" conditionals="121" coveredconditionals="120" methods="11" coveredmethods="7" elements="280" coveredelements="271" complexity="0" loc="148" ncloc="148" packages="2" files="6" classes="6"/>
+<coverage generated="1711100843390" clover="3.2.0">
+  <project timestamp="1711100843390" name="All files">
+    <metrics statements="167" coveredstatements="161" conditionals="134" coveredconditionals="131" methods="12" coveredmethods="8" elements="313" coveredelements="300" complexity="0" loc="167" ncloc="167" packages="2" files="7" classes="7"/>
     <package name="backend">
-      <metrics statements="20" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="server.js" path="/Users/vickynguyen/Documents/GitHub/cosc4353-gp/backend/server.js">
-        <metrics statements="20" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
+      <metrics statements="22" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="server.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\server.js">
+        <metrics statements="22" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="24" count="4" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
       </file>
     </package>
     <package name="backend.routes">
-      <metrics statements="128" coveredstatements="125" conditionals="121" coveredconditionals="120" methods="9" coveredmethods="6"/>
-      <file name="fuelHistory.js" path="/Users/vickynguyen/Documents/GitHub/cosc4353-gp/backend/routes/fuelHistory.js">
+      <metrics statements="145" coveredstatements="140" conditionals="134" coveredconditionals="131" methods="10" coveredmethods="7"/>
+      <file name="fuelHistory.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\fuelHistory.js">
         <metrics statements="42" coveredstatements="42" conditionals="58" coveredconditionals="57" methods="3" coveredmethods="3"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="50" count="5" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
-        <line num="55" count="4" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
         <line num="56" count="12" type="stmt"/>
         <line num="57" count="12" type="stmt"/>
         <line num="58" count="48" type="stmt"/>
@@ -73,17 +75,17 @@
         <line num="89" count="7" type="cond" truecount="2" falsecount="0"/>
         <line num="92" count="40" type="stmt"/>
         <line num="94" count="8" type="stmt"/>
-        <line num="97" count="4" type="stmt"/>
+        <line num="97" count="5" type="stmt"/>
       </file>
-      <file name="login.js" path="/Users/vickynguyen/Documents/GitHub/cosc4353-gp/backend/routes/login.js">
+      <file name="login.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\login.js">
         <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
         <line num="18" count="5" type="stmt"/>
         <line num="20" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="21" count="1" type="stmt"/>
@@ -93,16 +95,16 @@
         <line num="28" count="3" type="cond" truecount="4" falsecount="0"/>
         <line num="29" count="2" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
+        <line num="37" count="5" type="stmt"/>
       </file>
-      <file name="profileInfo.js" path="/Users/vickynguyen/Documents/GitHub/cosc4353-gp/backend/routes/profileInfo.js">
+      <file name="profileInfo.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\profileInfo.js">
         <metrics statements="33" coveredstatements="33" conditionals="37" coveredconditionals="37" methods="1" coveredmethods="1"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
         <line num="9" count="13" type="stmt"/>
         <line num="10" count="13" type="cond" truecount="5" falsecount="0"/>
         <line num="11" count="1" type="stmt"/>
@@ -129,16 +131,36 @@
         <line num="43" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="44" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="51" count="4" type="stmt"/>
+        <line num="51" count="5" type="stmt"/>
       </file>
-      <file name="registration.js" path="/Users/vickynguyen/Documents/GitHub/cosc4353-gp/backend/routes/registration.js">
+      <file name="quoteCreation.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\quoteCreation.js">
+        <metrics statements="17" coveredstatements="15" conditionals="13" coveredconditionals="11" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="5" type="cond" truecount="5" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+      </file>
+      <file name="registration.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\registration.js">
         <metrics statements="27" coveredstatements="27" conditionals="18" coveredconditionals="18" methods="1" coveredmethods="1"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
         <line num="9" count="10" type="stmt"/>
         <line num="11" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="12" count="1" type="stmt"/>
@@ -159,19 +181,19 @@
         <line num="36" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="37" count="1" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
-        <line num="43" count="4" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
       </file>
-      <file name="users.js" path="/Users/vickynguyen/Documents/GitHub/cosc4353-gp/backend/routes/users.js">
+      <file name="users.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\users.js">
         <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
       </file>
     </package>
   </project>

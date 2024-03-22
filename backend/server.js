@@ -14,6 +14,7 @@ const fuelHistoryRoute = require('./routes/fuelHistory');
 const registrationRoute = require('./routes/registration');
 const profileInfoRoute = require('./routes/profileInfo');
 const login = require('./routes/login');
+const quoteCreation = require('./routes/quoteCreation');
 
 
 // Use routes
@@ -22,6 +23,7 @@ app.use('/history', fuelHistoryRoute);
 app.use('/registration', registrationRoute);
 app.use('/profileInfo', profileInfoRoute);
 app.use('/login', login);
+app.use('/quoteCreation', quoteCreation)
 
 // Specify the port to listen on
 const port = 3000;
