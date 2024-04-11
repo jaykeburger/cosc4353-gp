@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Flex, VStack, Card, CardBody, Input, Button, CardHeader, Heading, Badge, HStack, Spacer } from '@chakra-ui/react';
 import { useFormik } from 'formik';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 export default function Login() {
   const [submitted, setSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
   const handleClickShowPassword = () => setShowPassword(!showPassword)
 
   const formik = useFormik({
@@ -14,11 +17,23 @@ export default function Login() {
       password: '',
     },
     onSubmit: (values) => {
+      setSubmitted(true);
+      setErrorMessage('');
       if (values.username === '' || values.password === '') {
-        setSubmitted(true);
+        setErrorMessage('Username and Password are required');
+        setSubmitted(false);
         return;
       }
-      alert(JSON.stringify(values, null, 2));
+      axios.post('http://localhost:3002/login', values)
+      .then(response => {
+        navigate('/');
+      })
+      .catch(error => {
+        setErrorMessage(error.response ? error.response.data : 'Invalid login. Register or try again.');
+      })
+      .finally(() => {
+        setSubmitted(false);
+      });
     },
   });
 
@@ -49,9 +64,6 @@ export default function Login() {
                   onChange={formik.handleChange}
                   value={formik.values.username}
                 />
-                <Spacer>
-                  {submitted && !formik.values.username && <Badge colorScheme='red'>Invalid Username</Badge>}
-                </Spacer>
               </VStack>
               <HStack width={250} spacing={5}>
                   <Input
@@ -67,11 +79,11 @@ export default function Login() {
                     {showPassword ? 'Hide' : 'Show'}
                   </Button>
               </HStack>
-              <Spacer>
-                {submitted && ((!formik.values.password || !formik.values.repassword) || (formik.values.password !== formik.values.repassword)) && <Badge colorScheme='red'>Passwords do not match</Badge>}
-              </Spacer>
               <Button type="submit">Submit</Button>
             </VStack>
+            <Spacer>
+            {errorMessage && <Badge colorScheme='red' mt={4}>{errorMessage}</Badge>}
+              </Spacer>
           </form>
         </CardBody>
       </Card>
