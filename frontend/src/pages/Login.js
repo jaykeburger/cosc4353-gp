@@ -26,7 +26,10 @@ export default function Login() {
       }
       axios.post('http://localhost:3002/login', values)
       .then(response => {
-        navigate('/');
+        console.log("Response.Data:", response.data);
+        if (response.status === 200) {
+          navigate('/');
+        }
       })
       .catch(error => {
         setErrorMessage(error.response ? error.response.data : 'Invalid login. Register or try again.');

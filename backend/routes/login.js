@@ -1,11 +1,11 @@
 const express = require('express');
+const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
 // dummy user data for demonstration
-
 const users = {
     'apple': {
         username: 'apple',
@@ -14,7 +14,9 @@ const users = {
 };
 
 // define the login route
-router.post('/', (req, res) => {
+router.post('/login', (req, res) => {
+    console.log("Login route hit", req.body);
+
     const {username, password} = req.body;
 
     if (!username) {
@@ -31,6 +33,8 @@ router.post('/', (req, res) => {
 
   // login successful
     res.status(200).send('User logged in successfully');
+    console.log("status 200");
+
 });
 
 // export the router module so that server.js file can use it
