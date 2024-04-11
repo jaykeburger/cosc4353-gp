@@ -30,7 +30,7 @@ export default function Header() {
           <FaBars />
         </MenuButton>
         <MenuList>
-          <MenuItem onClick={() => handleRedirect('/profile-info')}>Profile Management</MenuItem>
+          <MenuItem onClick={() => handleRedirect('/profileInfo')}>Profile Management</MenuItem>
           <MenuItem onClick={() => handleRedirect('/fuel-quote')}>Create Quote</MenuItem>
           <MenuItem onClick={() => handleRedirect('/history')}>Fuel History</MenuItem>
           <MenuItem onClick={() => handleRedirect('/')}>Logout</MenuItem>

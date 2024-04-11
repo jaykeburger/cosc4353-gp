@@ -14,15 +14,15 @@ connection.connect((err) => {
 	console.log('User Database connected');
 });
 
-function registerUser(name, add1, add2, city, state, zipcode, callback) {
+function registerInfo(username, firstname, lastname, add1, add2, city, state, zipcode, callback) {
     connection.query(
-        "INSERT INTO user (`name`, `add1`, `add2`,`city`,`state`,`zipcode`) VALUES (?, ?)",
-        [name, add1, add2, city, state, zipcode],
+        "INSERT INTO `user` (`username`, `firstname`, `lastname`, `add1`, `add2`, `city`, `state`, `zipcode`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [username, firstname, lastname, add1, add2, city, state, zipcode],
         callback
     );
 }
 
 
 module.exports = {
-	registerUser
+	registerInfo
 };

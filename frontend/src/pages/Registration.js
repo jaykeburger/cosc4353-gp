@@ -41,7 +41,7 @@ export default function Registration() {
         .then((response) => {
           console.log("Response.Data:", response.data);
           if (response.status === 200) {
-            navigate("/profileInfo");
+            navigate(`/profileInfo?username=${values.username}`);
             console.log("Registration Successful");
           }
           setMessage(response.data);
