@@ -29,7 +29,7 @@ export default function Login() {
         console.log("Response.data", response.data);
         if (response.status === 200){
           console.log("Succesfully logged in!");
-          navigate("/");
+          navigate("/history");
           console.log("Login Successful")
         }
       })
