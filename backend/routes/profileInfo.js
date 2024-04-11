@@ -3,10 +3,12 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
+const profileController = require('../controllers/profilecontroller');
 
 // Define a route
 router.post('/', (req, res) => {
-    const { name, add1, add2, city, state, zipcode } = req.body
+    const { name, add1, add2, city, state, zipcode } = req.body;
+    console.log('profile info hit');
     if (!name || name.trim().length === 0 || !/[A-Za-z]+/.test(name)) {
         return res.status(400).send("Name must contain letters and cannot be empty");
     }
@@ -44,7 +46,13 @@ router.post('/', (req, res) => {
         return res.status(400).send("Zipcode must be at least 5 characters");
     }
 
-    res.status(200).send('User profile information completed succesfully.');
+    profileController.registerUser(name, add1, add2, city, state, zipcode, (err, results) => {
+        if (err) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        } else {
+            res.status(200).send('User profile information succesfully input.');
+        }
+    });
 });
 
 // export the router module so that server.js file can use it

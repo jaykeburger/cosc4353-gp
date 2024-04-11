@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/register" element={<Registration />} />
           <Route path="/history" element={<ClientFuelHistory />} />
-          <Route path="/profile-info" element={<ProfileInfo />} />
+          <Route path="/profileInfo" element={<ProfileInfo />} />
           <Route path="/login" element={<Login />} />
           <Route path="/fuel-quote" element={<FuelQuote />} />
           <Route path="/" element={<Homepage />} />
