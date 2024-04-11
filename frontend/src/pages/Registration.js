@@ -40,7 +40,7 @@ export default function Registration() {
         .then((response) => {
           console.log("Response.Data:", response.data);
           if (response.status === 200) {
-            navigate("/profile-info");
+            navigate("/");
           }
           setMessage(response.data);
           setErrMessage('');

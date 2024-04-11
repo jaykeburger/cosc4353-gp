@@ -1,5 +1,5 @@
 module.exports = {
-	host: 'hostname=fuel-project-server.mysql.database.azure.com',
+	host: 'fuel-project-server.mysql.database.azure.com',
 	user: 'theboss',
 	password: 'project-test1!',
 	database: 'fuelcompany',
