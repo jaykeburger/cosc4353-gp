@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { Link as RouterLink } from 'react-router-dom';
 import axios from "axios";
 
 export default function Registration() {
@@ -59,12 +60,21 @@ export default function Registration() {
   });
 
   return (
+
     <Flex
       height="100vh"
       alignItems="center"
       justifyContent="center"
       bgColor="green.200"
     >
+      <Flex position="absolute" top={0} right={0} p={4}justifyContent="flex-end">
+        <Button as={RouterLink} to="/" colorScheme="white">
+          Home
+        </Button>
+        <Button as={RouterLink} to="/login" colorScheme="white" mr={4}>
+          Log In
+        </Button>
+      </Flex>
       <Card
         alignSelf="center"
         width="40vh"

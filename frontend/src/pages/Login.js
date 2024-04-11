@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Flex, VStack, Card, CardBody, Input, Button, CardHeader, Heading, Badge, HStack, Spacer } from '@chakra-ui/react';
 import { useFormik } from 'formik';
+import { Link as RouterLink } from 'react-router-dom';
 
 export default function Login() {
   const [submitted, setSubmitted] = useState(false);
@@ -23,6 +24,14 @@ export default function Login() {
 
   return (
     <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="green.200">
+      <Flex position="absolute" top={0} right={0} p={4} justifyContent="flex-end">
+        <Button as={RouterLink} to="/" colorScheme="white">
+          Home
+        </Button>
+        <Button as={RouterLink} to="/register" colorScheme="white" mr={4}>
+          Register
+        </Button>
+      </Flex>
       <Card alignSelf="center" width="40vh" height="35vh" alignItems="center" justifyContent="center" textAlign="center">
         <CardHeader>
           <Heading size="md" textAlign="center">Login</Heading>
