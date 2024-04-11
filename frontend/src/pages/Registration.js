@@ -42,6 +42,7 @@ export default function Registration() {
           console.log("Response.Data:", response.data);
           if (response.status === 200) {
             navigate("/");
+            console.log("Registration Successful");
           }
           setMessage(response.data);
           setErrMessage('');

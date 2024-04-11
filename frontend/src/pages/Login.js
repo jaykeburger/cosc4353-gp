@@ -17,29 +17,37 @@ export default function Login() {
       password: '',
     },
     onSubmit: (values) => {
-      setSubmitted(true);
-      setErrorMessage('');
+      console.log("Values: ", values);
       if (values.username === '' || values.password === '') {
-        setErrorMessage('Username and Password are required');
-        setSubmitted(false);
+        setSubmitted(true);
         return;
       }
-      axios.post('http://localhost:3002/login', values)
+      axios.post('http://localhost:3000/login', values, {
+        headers: { "Content-Type": "application/json" },
+      })
       .then(response => {
-        console.log("Response.Data:", response.data);
-        if (response.status === 200) {
-          navigate('/');
+        console.log("Response.data", response.data);
+        if (response.status === 200){
+          console.log("Succesfully logged in!");
+          navigate("/");
+          console.log("Login Successful")
         }
       })
-      .catch(error => {
-        setErrorMessage(error.response ? error.response.data : 'Invalid login. Register or try again.');
-      })
-      .finally(() => {
-        setSubmitted(false);
+      .catch((error) => {
+        if (error.response && error.response.data) {
+  console.log("Error message:", error.response.data);
+  // Handle the error message as needed
+  setErrorMessage(error.response.data)
+}   
+else {
+  console.log("Error:", error.message);
+  // Handle other types of errors
+}
       });
-    },
+  },
   });
 
+  
   return (
     <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="green.200">
       <Flex position="absolute" top={0} right={0} p={4} justifyContent="flex-end">
@@ -66,6 +74,7 @@ export default function Login() {
                   isRequired
                   onChange={formik.handleChange}
                   value={formik.values.username}
+                  autoComplete="username"
                 />
               </VStack>
               <HStack width={250} spacing={5}>

@@ -2,39 +2,34 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
+const loginController = require('../controllers/logincontroller');
+
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
-// dummy user data for demonstration
-const users = {
-    'apple': {
-        username: 'apple',
-        password: '12345!', 
-    }
-};
-
 // define the login route
-router.post('/login', (req, res) => {
-    console.log("Login route hit", req.body);
-
+router.post('/', (req, res) => {
     const {username, password} = req.body;
+    console.log('Login hit');
 
-    if (!username) {
-        return res.status(400).send('Username is required.');
-    }
-    if (!password) {
-        return res.status(400).send('Password is required.');
+    if (!username || !password) {
+        return res.status(300).send('Username and password are required.');
     }
 
-    const user = users[username];
-    if (!user || user.password !== password) {
-        return res.status(401).send('Invalid username or password');
-    }
-
-  // login successful
-    res.status(200).send('User logged in successfully');
-    console.log("status 200");
-
+    loginController.loginUser(username, password, (err, success) => {
+        if (err) {
+            console.error('Error occurred while authenticating user:', err);
+            return res.status(500).send('An error occurred while processing your request.');
+        }
+        if (!success) {
+            console.log("No success");
+            return res.status(401).send('Invalid username or password');
+        }
+        else{
+            console.log("Logged in.");
+            res.status(200).send('User logged in successfully');
+        }
+    });
 });
 
 // export the router module so that server.js file can use it

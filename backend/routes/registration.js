@@ -20,9 +20,6 @@ router.post('/', (req, res) => {
     if (password !== password_confirm) {
         return res.status(400).send("Passwords do not match!");
     }
-    // if (username === 'jappleseed') {
-    //     return res.status(400).send('This username is already in use');
-    // }
     if (username.length < 5) {
         return res.status(400).send('Username must be atleast 5 characters');
     }

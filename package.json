@@ -5,5 +5,9 @@
     "mysql2": "^3.9.4",
     "react-pro-sidebar": "^1.1.0",
     "sequelize": "^6.37.2"
+  },
+  "scripts": {
+    "start": "node app.js"
   }
+  
 }
