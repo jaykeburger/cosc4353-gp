@@ -73,7 +73,7 @@ export default function Registration() {
           Home
         </Button>
         <Button as={RouterLink} to="/login" colorScheme="white" mr={4}>
-          Log In
+          Login
         </Button>
       </Flex>
       <Card
