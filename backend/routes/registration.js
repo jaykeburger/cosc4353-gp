@@ -41,23 +41,24 @@ router.post('/', (req, res) => {
     if (/^[a-zA-Z0-9]+$/.test(password)) {
         return res.status(400).send('Password must contain special characters');
     }
-    // Check if username is 'taken'
     registercontroller.checkUsername(username, (err, results) => {
+        // console.log('results:', results, " and result length:,", results.length)
         if (err) {
             return res.status(500).json({ message: 'Internal Server Error' });
-        }
+        }    
         if(results.length !== 0){
             return res.status(400).send('This username is already in use')
         }
-    });
-    // res.status(200).send('User registered successfully');
-    registercontroller.registerProfile(username,password, (err, results) => {
+
+    // If the username is not taken, continue with registration
+    registercontroller.registerProfile(username, password, (err, results) => {
         if (err) {
             res.status(500).json({ message: 'Internal Server Error' });
         } else {
             res.status(200).send('User registered successfully');
         }
     });
+});
 });
 
 // export the router module so that server.js file can use it
