@@ -13,6 +13,9 @@ router.post('/', (req, res) => {
     if(gallons_requested > 100000000) {
         return res.status(400).send("Gallons Requested must be less than 100000000");
     }
+    if(gallons_requested < 0) {
+        return res.status(400).send("Gallons must be positive");
+    }
     if(delivery_address > 100) {
         return res.status(400).send("Delivery address must be less than 100 characters");
     }
