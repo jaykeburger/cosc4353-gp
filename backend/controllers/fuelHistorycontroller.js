@@ -22,10 +22,10 @@ connection.connect((err) => {
 // 	);
 // }
 
-function getHistory(clientID, callback) {
+function getHistory(username, callback) {
 	connection.query(
-		'SELECT * FROM `fuelquote` WHERE `quoteCreatorID` = ?',
-		[clientID],
+		'SELECT fh.* FROM fuelquote fh JOIN user u ON fh.quoteCreatorID = u.userID WHERE u.username = ?',
+		[username],
 		callback
 	);
 }

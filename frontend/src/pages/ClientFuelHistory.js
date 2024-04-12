@@ -19,10 +19,14 @@ import { CiSearch } from "react-icons/ci";
 import Layout from "../Layout.js";
 import axios from "axios";
 import { useFormik } from "formik";
+import { useLocation } from "react-router-dom";
 
 export default function ClientFuelHistory() {
   const [history, setHistory] = useState([]);
   const [errMessage, setErrMessage] = React.useState("");
+  const location = useLocation();
+  const username = new URLSearchParams(location.search).get('username');
+  console.log('usernameSearch:',username);
   const validateGallons = (values) => {
     var errors = false;
     if (
@@ -104,7 +108,7 @@ export default function ClientFuelHistory() {
   useEffect(() => {
     axios
       //CHANGE the 1 in clientid=
-      .get("http://localhost:3000/history/?clientID=1")
+      .get(`http://localhost:3000/history/?username=${username}`)
       .then((response) => {
         console.log("My response:", response.data);
         setHistory(response.data);

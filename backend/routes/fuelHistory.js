@@ -8,8 +8,8 @@ const fhcontroller = require('../controllers/fuelHistorycontroller')
 // Define a route
 router.get('/', (req, res) => {
     // const clientID = req.body.clientID;
-    const clientID = req.query.clientID;
-    fhcontroller.getHistory(clientID, (err, results) => {
+    const username = req.query.username;
+    fhcontroller.getHistory(username, (err, results) => {
         if (err) {
             res.status(500).json({ message: 'Internal Server Error' });
         } else {
