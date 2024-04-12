@@ -3,17 +3,22 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
+const registercontroller = require('../controllers/registrationcontroller')
 
 // Define a route
 router.post('/', (req, res) => {
-    const { username, password, password_confirm } = req.body
+    // console.log("body:", req.body)
+    // console.log("query:", req.query)
+    // console.log(req.body)
+    // const { username, password, password_confirm } = req.body
+    // const username = req.query.username;
+    // const password = req.query.password
+    const username = req.body.username;
+    const password = req.body.password
+    const password_confirm = req.body.password_confirm;
 
     if (password !== password_confirm) {
         return res.status(400).send("Passwords do not match!");
-    }
-    // Check if username is 'jappleseed'
-    if (username === 'jappleseed') {
-        return res.status(400).send('This username is already in use');
     }
     if (username.length < 5) {
         return res.status(400).send('Username must be atleast 5 characters');
@@ -36,7 +41,23 @@ router.post('/', (req, res) => {
     if (/^[a-zA-Z0-9]+$/.test(password)) {
         return res.status(400).send('Password must contain special characters');
     }
-    res.status(200).send('User registered successfully');
+    // Check if username is 'taken'
+    registercontroller.checkUsername(username, (err, results) => {
+        if (err) {
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+        if(results.length !== 0){
+            return res.status(400).send('This username is already in use')
+        }
+    });
+    // res.status(200).send('User registered successfully');
+    registercontroller.registerProfile(username,password, (err, results) => {
+        if (err) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        } else {
+            res.status(200).send('User registered successfully');
+        }
+    });
 });
 
 // export the router module so that server.js file can use it

@@ -10,7 +10,7 @@ export default function Homepage() {
     <Flex direction="column" minHeight="100vh" justifyContent="space-between" bgColor="green.300">
       <Flex justifyContent="flex-end" p={4}>
         <Button as={RouterLink} to="/login" colorScheme="white" mr={4}>
-          Log In
+          Login
         </Button>
         <Button as={RouterLink} to="/register" colorScheme="white">
           Registration

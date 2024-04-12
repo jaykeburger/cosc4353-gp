@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { Flex, FormControl, FormLabel, Select, Stack, FormHelperText, Input, Card, Button } from '@chakra-ui/react';
+import { Flex, FormControl, FormLabel, Select, Stack, FormHelperText, Input, Card, Button, Spacer, Badge } from '@chakra-ui/react';
 import { useFormik } from 'formik';
+import axios from "axios";
+import { Link as RouterLink, useNavigate, useLocation } from "react-router-dom";
 
 
 
 export default function Profile() {
-    const [submitted, setSubmitted] = useState(false);
+    //const [submitted, setSubmitted] = useState(false);
+    const [message, setMessage] = React.useState("");
+    const [errMessage, setErrMessage] = React.useState("");
+    const navigate = useNavigate();
+    const location = useLocation();
+    const username = new URLSearchParams(location.search).get('username');
 
     const formik = useFormik({
     initialValues: {
-      name: '',
+      firstname: '',
+      lastname:'',
       add1: '',
       add2: '',
       city: '',
@@ -31,27 +39,52 @@ export default function Profile() {
     },
 
     onSubmit: (values) => {
-      if (values.name === '' || values.name.includes(' ')) {
-        setSubmitted(true);
-        return;
-      }
-      if (values.zipcode.length < 5) {
-        setSubmitted(true);
-        return;
-      }
-      alert(JSON.stringify(values, null, 2));
+      console.log("Frontend Username: ", username);
+      console.log("Values: ", values);
+      axios
+        .post(`http://localhost:3000/profileInfo?username=${username}`, values, {
+          headers: { "Content-Type": "application/json" },
+        })
+        .then((response) => {
+          console.log("Response.Data:", response.data);
+          if (response.status === 200) {
+            navigate("/history");
+            console.log("User Info Successful");
+          }
+          setMessage(response.data);
+          setErrMessage('');
+        })
+        .catch((error) => {
+          if (error.response && error.response.data) {
+    console.log("Error message:", error.response.data);
+    // Handle the error message as needed
+    setErrMessage(error.response.data)
+  } else {
+    console.log("Error:", error.message);
+    // Handle other types of errors
+  }
+        });
     },
   });
 
   return (
     <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="green.200">
-        <Card alignSelf="center" width="40vh" height="75vh" alignItems="center" justifyContent="center" textAlign="center">
+        <Card alignSelf="center" width="40vh" height="80vh" alignItems="center" justifyContent="center" textAlign="center">
             <Stack bg="white">
             <form onSubmit={formik.handleSubmit}>
                 <FormControl isRequired>
-                    <FormLabel>Full Name</FormLabel>
+                    <FormLabel>First Name</FormLabel>
                         <Input type='text' 
-                        name ="name" 
+                        name ="firstname" 
+                        maxLength="50" 
+                        onChange={formik.handleChange}
+                        value={formik.values.name}
+                        />
+                </FormControl>
+                <FormControl isRequired>
+                    <FormLabel>Last Name</FormLabel>
+                        <Input type='text' 
+                        name ="lastname" 
                         maxLength="50" 
                         onChange={formik.handleChange}
                         value={formik.values.name}
@@ -168,6 +201,9 @@ export default function Profile() {
                           )}
                 </FormControl>
               <Button type="submit">Submit</Button>
+              <Spacer>
+              {errMessage && <Badge colorScheme='red' mt={4}>{"Error."}</Badge>}
+              </Spacer>
               </form>
             </Stack>
         </Card>

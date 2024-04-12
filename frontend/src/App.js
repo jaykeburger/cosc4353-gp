@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
 import Registration from './pages/Registration';
 import ClientFuelHistory from './pages/ClientFuelHistory';
 import ProfileInfo from './pages/ProfileInfo';
@@ -9,31 +9,20 @@ import Homepage from './pages/Homepage';
 import FuelQuote from './pages/FuelQuote';
 
 function App() {
-  // 2. Wrap ChakraProvider at the root of your app
   return (
     <ChakraProvider>
       <BrowserRouter>
-      <Routes>
-        <Route exact path="/register" element={<Registration />}/>
-      </Routes>
-      <Routes>
-        <Route exact path="/history" element={<ClientFuelHistory />}/>
-      </Routes>
-      <Routes>
-        <Route exact path="/profile-info" element={<ProfileInfo />}/>
-      </Routes>
-      <Routes>
-        <Route exact path="/login" element={<Login />}/>
-      </Routes>
-      <Routes>
-        <Route exact path="/fuel-quote" element={<FuelQuote />}/>
-      </Routes>
-      <Routes>
-        <Route exact path="/" element={<Homepage />}/>
-      </Routes>
+        <Routes>
+          <Route path="/register" element={<Registration />} />
+          <Route path="/history" element={<ClientFuelHistory />} />
+          <Route path="/profileInfo" element={<ProfileInfo />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/fuel-quote" element={<FuelQuote />} />
+          <Route path="/" element={<Homepage />} />
+        </Routes>
       </BrowserRouter>
     </ChakraProvider>
-  )
+  );
 }
 
 export default App;

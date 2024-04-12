@@ -63,7 +63,7 @@ export default function ClientFuelHistory() {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
+      // name: "",
       mingallons: "",
       maxgallons: "",
       minprice: "",
@@ -72,7 +72,7 @@ export default function ClientFuelHistory() {
       enddate: "",
     },
     onSubmit: (values) => {
-      console.log('Sending: ', values);
+      console.log("Sending: ", values);
       const errors = {
         gallons: validateGallons(values),
         dates: validateDates(values),
@@ -103,9 +103,10 @@ export default function ClientFuelHistory() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/history")
+      //CHANGE the 1 in clientid=
+      .get("http://localhost:3000/history/?clientID=1")
       .then((response) => {
-        // console.log("My response:", response.data);
+        console.log("My response:", response.data);
         setHistory(response.data);
       })
       .catch((error) => {
@@ -130,7 +131,7 @@ export default function ClientFuelHistory() {
               Search by:
             </Tag>
             <form onSubmit={formik.handleSubmit}>
-              <Input
+              {/* <Input
                 bgColor="white"
                 width={150}
                 placeholder="Name"
@@ -138,7 +139,7 @@ export default function ClientFuelHistory() {
                 fontSize="10px"
                 onChange={formik.handleChange}
                 value={formik.values.name}
-              ></Input>
+              ></Input> */}
               <Input
                 bgColor="white"
                 name="mingallons"
@@ -214,7 +215,7 @@ export default function ClientFuelHistory() {
             <Table variant="simple">
               <Tbody>
                 <Tr>
-                  <Th>Client Name</Th>
+                  {/* <Th>Client Name</Th> */}
                   <Th isNumeric>Gallons requested</Th>
                   <Th>Delivery Address</Th>
                   <Th>Delivery Date</Th>
@@ -224,12 +225,14 @@ export default function ClientFuelHistory() {
                 {history.length > 0 ? (
                   history.map((value, index) => (
                     <Tr key={index}>
-                      <Td>{value.clientname}</Td>
-                      <Td>{value.gallonsrequest}</Td>
-                      <Td>{value.shippingaddress}</Td>
-                      <Td>{value.deliverydate}</Td>
-                      <Td>{value.suggestedprice}</Td>
-                      <Td>{value.amountdue}</Td>
+                      {/* <Td>{value.clientname}</Td> */}
+                      <Td>{value.gallonsRequested}</Td>
+                      <Td>{value.deliveryAddress}</Td>
+                      <Td>
+                        {new Date(value.deliveryDate).toLocaleDateString()}
+                      </Td>
+                      <Td>{value.suggestPrice}</Td>
+                      <Td>{value.totalDue}</Td>
                     </Tr>
                   ))
                 ) : (

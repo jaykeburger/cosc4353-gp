@@ -3,56 +3,23 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
+const fhcontroller = require('../controllers/fuelHistorycontroller')
 
-const data = [
-    {
-            clientname: 'John Doe',
-            gallonsrequest: 100,
-            shippingaddress: '123 Main St',
-            deliverydate: '2024-03-20',
-            suggestedprice: 200,
-            amountdue: 200
-        },
-        {
-            clientname: 'Jane Smith',
-            gallonsrequest: 150,
-            shippingaddress: '456 Elm St',
-            deliverydate: '2024-03-21',
-            suggestedprice: 300,
-            amountdue: 300
-        },
-        {
-            clientname: 'Alice Johnson',
-            gallonsrequest: 120,
-            shippingaddress: '789 Oak St',
-            deliverydate: '2024-03-22',
-            suggestedprice: 240,
-            amountdue: 240
-        },
-        {
-            clientname: 'Bob Brown',
-            gallonsrequest: 80,
-            shippingaddress: '101 Pine St',
-            deliverydate: '2024-03-23',
-            suggestedprice: 160,
-            amountdue: 160
-        },
-        {
-            clientname: 'Emily Davis',
-            gallonsrequest: 200,
-            shippingaddress: '202 Cedar St',
-            deliverydate: '2024-03-24',
-            suggestedprice: 400,
-            amountdue: 400
-        }
-    ]
 // Define a route
 router.get('/', (req, res) => {
-    res.status(200).json(data);
+    // const clientID = req.body.clientID;
+    const clientID = req.query.clientID;
+    fhcontroller.getHistory(clientID, (err, results) => {
+        if (err) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        } else {
+            res.status(200).json(results);
+        }
+    });
 });
 
 // //handling search
-router.get('/search', (req, res) => {
+router.get('/search', (req, res) => { 
     const filters = req.query;
     const filteredUsers = data.filter(user => {
         let isValid = true;
@@ -91,7 +58,20 @@ router.get('/search', (req, res) => {
         }
         return isValid;
     });
-    res.status(200).send(filteredUsers);
+    const clientID = 1
+    const mingallons = req.query.mingallons;
+    const maxgallons = req.query.maxgallons;
+    const minprice = req.query.minprice;
+    const maxprice = req.query.maxprice;
+    const startdate = req.query.startdate;
+    const enddate = req.query.enddate;
+    fhcontroller.getQueryHistory(clientID, mingallons, maxgallons, minprice, maxprice, startdate, enddate, (err, results) => {
+        if (err) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        } else {
+            res.status(200).json(results);
+        }
+    });
 });
 
 module.exports = router;

@@ -4,6 +4,12 @@ const app = express();
 
 app.use(cors()); // Enable CORS for all routes
 
+// parse requests of content-type - application/json
+app.use(express.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
     res.send('hello root node');// this gets executed when user visit http://localhost:3000/
 });
@@ -32,5 +38,6 @@ const port = 3000;
 const server = app.listen(port, () => {
     console.log(`Node.js HTTP server is running on port ${port}`);
 });
+
 
 module.exports = server;
