@@ -123,27 +123,18 @@ export default function ClientFuelHistory() {
       <Card bgColor="green.300">
         <VStack>
           <CardHeader bgColor="green.300" textAlign="center" fontWeight="bold">
-            Client Fueling History
+            Client Fueling History for {username}
           </CardHeader>
           {errMessage && (
             <Card textColor="red" alignSelf="center">
               <CardFooter>{errMessage}</CardFooter>
             </Card>
           )}
-          <HStack spacing={20}>
+          {/* <HStack spacing={20}>
             <Tag width={90} height={10}>
               Search by:
             </Tag>
             <form onSubmit={formik.handleSubmit}>
-              {/* <Input
-                bgColor="white"
-                width={150}
-                placeholder="Name"
-                name="name"
-                fontSize="10px"
-                onChange={formik.handleChange}
-                value={formik.values.name}
-              ></Input> */}
               <Input
                 bgColor="white"
                 name="mingallons"
@@ -213,7 +204,7 @@ export default function ClientFuelHistory() {
                 </Button>
               </HStack>
             </form>
-          </HStack>
+          </HStack> */}
 
           <TableContainer bgColor="white">
             <Table variant="simple">
