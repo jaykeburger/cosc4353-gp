@@ -12,6 +12,7 @@ connection.connect((err) => {
 });
 
 function loginUser(username, password, callback) {
+    let hashUser = ModuloHash(usename);
     let hashedPwd = ModuloHash(password);
     connection.query(
         'SELECT * FROM `login` WHERE `username` = ? AND `password` = ?',
