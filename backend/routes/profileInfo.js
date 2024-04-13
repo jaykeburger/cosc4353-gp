@@ -18,6 +18,7 @@ router.post('/', (req, res) => {
         return res.status(400).send("First Name must be less than 50 characters");
     }
 
+    /*
     if (!lastname || firstname.trim().length === 0 || !/[A-Za-z]+/.test(lastname)) {
         return res.status(400).send("Last Name must contain letters and cannot be empty");
     }
@@ -54,7 +55,7 @@ router.post('/', (req, res) => {
     if (zipcode.length < 5) {
         return res.status(400).send("Zipcode must be at least 5 characters");
     }
-
+*/
     profileController.registerInfo(username, firstname, lastname, add1, add2, city, state, zipcode, (err, results) => {
         if (err) {
             res.status(500).json({ message: 'Internal Server Error' });

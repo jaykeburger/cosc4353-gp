@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
+const quoteCreationController = require('../controllers/fuelquoutecontroller');
 
 // Define a route
 router.post('/', (req, res) => {
@@ -22,6 +23,14 @@ router.post('/', (req, res) => {
     if(!delivery_date || !Object.prototype.toString.call(delivery_date) === '[object Date]') {
         return res.status(400).send("Delivery Date must not be empty and must be a valid date");
     }
+    const username = req.query.username;
+    quoteCreationController.fuelQuote(username, (err, results) => {
+        if (err) {
+            res.status(500).json({ message: 'Internal Server Error' });
+        } else {
+            res.status(200).json(results);
+        }
+    });
     res.status(200).send('User profile information completed succesfully.');
 });
 
