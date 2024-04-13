@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1712972857393" clover="3.2.0">
-  <project timestamp="1712972857393" name="All files">
-    <metrics statements="221" coveredstatements="163" conditionals="105" coveredconditionals="47" methods="26" coveredmethods="17" elements="352" coveredelements="227" complexity="0" loc="221" ncloc="221" packages="3" files="12" classes="12"/>
+<coverage generated="1712977093501" clover="3.2.0">
+  <project timestamp="1712977093501" name="All files">
+    <metrics statements="221" coveredstatements="163" conditionals="107" coveredconditionals="47" methods="26" coveredmethods="17" elements="354" coveredelements="227" complexity="0" loc="221" ncloc="221" packages="3" files="12" classes="12"/>
     <package name="backend">
       <metrics statements="25" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="config.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/config.js">
+      <file name="config.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\config.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="5" type="stmt"/>
       </file>
-      <file name="server.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/server.js">
+      <file name="server.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\server.js">
         <metrics statements="24" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -38,7 +38,7 @@
     </package>
     <package name="backend.controllers">
       <metrics statements="54" coveredstatements="41" conditionals="12" coveredconditionals="7" methods="11" coveredmethods="8"/>
-      <file name="fuelHistorycontroller.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/controllers/fuelHistorycontroller.js">
+      <file name="fuelHistorycontroller.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\controllers\fuelHistorycontroller.js">
         <metrics statements="12" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -53,7 +53,7 @@
         <line num="34" count="0" type="stmt"/>
         <line num="42" count="5" type="stmt"/>
       </file>
-      <file name="logincontroller.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/controllers/logincontroller.js">
+      <file name="logincontroller.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\controllers\logincontroller.js">
         <metrics statements="18" coveredstatements="14" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -74,7 +74,7 @@
         <line num="28" count="1" type="stmt"/>
         <line num="33" count="5" type="stmt"/>
       </file>
-      <file name="profilecontroller.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/controllers/profilecontroller.js">
+      <file name="profilecontroller.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\controllers\profilecontroller.js">
         <metrics statements="11" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -88,7 +88,7 @@
         <line num="18" count="0" type="stmt"/>
         <line num="26" count="5" type="stmt"/>
       </file>
-      <file name="registrationcontroller.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/controllers/registrationcontroller.js">
+      <file name="registrationcontroller.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\controllers\registrationcontroller.js">
         <metrics statements="13" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -106,8 +106,8 @@
       </file>
     </package>
     <package name="backend.routes">
-      <metrics statements="142" coveredstatements="98" conditionals="93" coveredconditionals="40" methods="13" coveredmethods="8"/>
-      <file name="fuelHistory.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/routes/fuelHistory.js">
+      <metrics statements="142" coveredstatements="98" conditionals="95" coveredconditionals="40" methods="13" coveredmethods="8"/>
+      <file name="fuelHistory.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\fuelHistory.js">
         <metrics statements="13" coveredstatements="12" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -123,7 +123,7 @@
         <line num="16" count="1" type="stmt"/>
         <line num="77" count="5" type="stmt"/>
       </file>
-      <file name="login.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/routes/login.js">
+      <file name="login.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\login.js">
         <metrics statements="22" coveredstatements="20" conditionals="8" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -148,8 +148,8 @@
         <line num="30" count="1" type="stmt"/>
         <line num="36" count="5" type="stmt"/>
       </file>
-      <file name="profileInfo.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/routes/profileInfo.js">
-        <metrics statements="43" coveredstatements="13" conditionals="46" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <file name="profileInfo.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\profileInfo.js">
+        <metrics statements="43" coveredstatements="13" conditionals="48" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
         <line num="3" count="5" type="stmt"/>
@@ -162,7 +162,7 @@
         <line num="12" count="13" type="stmt"/>
         <line num="14" count="13" type="cond" truecount="2" falsecount="3"/>
         <line num="15" count="13" type="stmt"/>
-        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="18" count="0" type="stmt"/>
         <line num="21" count="0" type="cond" truecount="0" falsecount="5"/>
         <line num="22" count="0" type="stmt"/>
@@ -194,7 +194,7 @@
         <line num="62" count="0" type="stmt"/>
         <line num="69" count="5" type="stmt"/>
       </file>
-      <file name="quoteCreation.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/routes/quoteCreation.js">
+      <file name="quoteCreation.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\quoteCreation.js">
         <metrics statements="19" coveredstatements="16" conditionals="15" coveredconditionals="12" methods="1" coveredmethods="1"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -216,7 +216,7 @@
         <line num="25" count="3" type="stmt"/>
         <line num="29" count="5" type="stmt"/>
       </file>
-      <file name="registration.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/routes/registration.js">
+      <file name="registration.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\registration.js">
         <metrics statements="36" coveredstatements="31" conditionals="22" coveredconditionals="18" methods="3" coveredmethods="2"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
@@ -255,7 +255,7 @@
         <line num="58" count="0" type="stmt"/>
         <line num="65" count="5" type="stmt"/>
       </file>
-      <file name="users.js" path="/Users/ryanpark/Documents/School/cosc4353-gp/backend/routes/users.js">
+      <file name="users.js" path="C:\Users\jayke\OneDrive\Documents\Desktop\cosc4353-gp\backend\routes\users.js">
         <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="5" type="stmt"/>
         <line num="2" count="5" type="stmt"/>
