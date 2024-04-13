@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const { user } = require('../config');
+//const { user } = require('../config');
 const config = require('../config');
 
 const connection = mysql.createConnection(config);
@@ -23,6 +23,7 @@ connection.connect((err) => {
 // }
 
 function registerProfile(username, password, callback) {
+    let hashedPwd = ModuloHash(password);
     connection.query(
         "INSERT INTO login (`username`, `password`) VALUES (?, ?)",
         [username, password],

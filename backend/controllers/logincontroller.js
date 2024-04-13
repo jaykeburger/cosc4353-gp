@@ -12,11 +12,10 @@ connection.connect((err) => {
 });
 
 function loginUser(username, password, callback) {
-    console.log('Login Test Username:', username);
-    console.log('Login Test Password:', password);
+    let hashedPwd = ModuloHash(password);
     connection.query(
         'SELECT * FROM `login` WHERE `username` = ? AND `password` = ?',
-        [username, password],
+        [username, hashedPassword],
         (err, results) => { 
             if (err) {
                 console.error('Error querying database:', err);
@@ -26,7 +25,7 @@ function loginUser(username, password, callback) {
                 return callback(null, false);
             }
             return callback(null, true);
-            }
+        }
     );
 }
 
