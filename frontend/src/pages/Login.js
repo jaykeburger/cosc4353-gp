@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Flex, VStack, Card, CardBody, Input, Button, CardHeader, Heading, Badge, HStack, Spacer } from '@chakra-ui/react';
+import { Text, Image, Flex, VStack, Card, CardBody, Input, Button, CardHeader, Heading, Badge, HStack, Spacer, Link } from '@chakra-ui/react';
 import { useFormik } from 'formik';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import loginImage from '../images/login-image.jpeg';
 
 export default function Login() {
   const [submitted, setSubmitted] = useState(false);
@@ -58,11 +59,14 @@ else {
           Register
         </Button>
       </Flex>
-      <Card alignSelf="center" width="40vh" height="35vh" alignItems="center" justifyContent="center" textAlign="center">
-        <CardHeader>
+      
+      <Card alignSelf="center" width="40vh" height="55vh" alignItems="center" justifyContent="center" textAlign="center">
+      <CardHeader>
           <Heading size="md" textAlign="center">Login</Heading>
         </CardHeader>
-        <CardBody>
+        <HStack>
+      
+        <CardBody >
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={5}>
               <VStack>
@@ -75,29 +79,35 @@ else {
                   onChange={formik.handleChange}
                   value={formik.values.username}
                   autoComplete="username"
+                  borderRadius="30px"
                 />
               </VStack>
               <HStack width={250} spacing={5}>
                   <Input
-                    width={200}
+                    width={250}
                     isRequired
                     type={showPassword ? 'text' : 'password'}
                     name = 'password'
-                    placeholder='Enter password'
+                    placeholder='Password'
                     onChange={formik.handleChange}
                     value={formik.values.password}
+                    borderRadius="30px"
                   />
                   <Button h='2.0rem' size='sm' onClick={setShowPassword}>
                     {showPassword ? 'Hide' : 'Show'}
                   </Button>
               </HStack>
-              <Button type="submit">Submit</Button>
-            </VStack>
-            <Spacer>
-            {errorMessage && <Badge colorScheme='red' mt={4}>{errorMessage}</Badge>}
-              </Spacer>
+              
+              <Button borderRadius="30px" width="100%" type="submit">Login</Button>
+              <Spacer />
+              {errorMessage && <Badge colorScheme='red' mt={4}>{errorMessage}</Badge>}
+              <Text>Not a member? 
+            <Link as={RouterLink} to="/register" color="teal.500" mt="4"> Register now</Link>
+          </Text>
+          </VStack>
           </form>
         </CardBody>
+        </HStack>
       </Card>
     </Flex>
   );
