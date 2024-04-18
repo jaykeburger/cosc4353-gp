@@ -49,7 +49,7 @@ else {
 
   
   return (
-    <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="green.200">
+    <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="#449C48">
       <Flex position="absolute" top={0} right={0} p={4} justifyContent="flex-end">
         <Button as={RouterLink} to="/" colorScheme="white">
           Home

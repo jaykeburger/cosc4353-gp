@@ -7,7 +7,7 @@ import Typewriter from "typewriter-effect";
 export default function Homepage() {
 
   return (
-    <Flex direction="column" minHeight="100vh" justifyContent="space-between" bgColor="green.300">
+    <Flex direction="column" minHeight="100vh" justifyContent="space-between" bgColor="#347937">
       <Flex justifyContent="flex-end" p={4}>
         <Button as={RouterLink} to="/login" colorScheme="white" mr={4}>
           Login
@@ -17,9 +17,9 @@ export default function Homepage() {
         </Button>
       </Flex>
       
-      <Flex flexGrow={1} alignItems="center" justifyContent="center" bgColor="green.300">
+      <Flex flexGrow={1} alignItems="center" justifyContent="center" bgColor="#347937">
         <Stack spacing={0}>
-          <Text textAlign={'center'} fontSize='100px' color="white" fontFamily="roboto">
+          <Text textAlign={'center'} fontSize='90px' color="white" fontFamily="roboto">
           <Typewriter
             options={{
                 autoStart: true,
