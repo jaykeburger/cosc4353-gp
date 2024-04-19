@@ -12,8 +12,12 @@ export default function Sidebar() {
   };
 
   const isActive = (path) => {
-    return location.pathname === path;
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.includes(path);
   };
+  
 
   const username = new URLSearchParams(location.search).get('username');
 
@@ -51,7 +55,6 @@ export default function Sidebar() {
           width="full"
           borderRightRadius="0px"
           bg={isActive('/history') ? '#ecede7' : 'white'}
-          
           textColor={isActive('/history') ? '#d65e4f' : 'black'}
           leftIcon={<FiBookOpen />}
           onClick={() => handleRedirect(`/history/?username=${username}`)}
@@ -63,8 +66,8 @@ export default function Sidebar() {
           fontSize="md"
           justifyContent="flex-start"
           width="full"
-          bg={isActive('/profile-management') ? '#ecede7' : 'white'}
-          textColor={isActive('/profile-management') ? '#d65e4f' : 'black'}
+          bg={isActive(`/profile-management`) ? '#ecede7' : 'white'}
+          textColor={isActive(`/profile-management`) ? '#d65e4f' : 'black'}
           leftIcon={<FiUser />}
           onClick={() => handleRedirect(`/profile-management/?username=${username}`)}
           borderRightRadius="0px"
@@ -79,7 +82,7 @@ export default function Sidebar() {
           bg={isActive('/') ? '#ecede7' : 'white'}
           textColor={isActive('/') ? '#d65e4f' : 'black'}
           leftIcon={<FiLogOut />}
-          onClick={() => handleRedirect('/')}
+          onClick={() => navigate('/')}
           borderRightRadius="0px"
           height="50px"
         >

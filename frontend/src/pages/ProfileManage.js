@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Box, FormControl, FormLabel, Input, Button, VStack, Heading, useToast, Text } from '@chakra-ui/react';
+import { Box, FormControl, FormLabel, Input, Button, VStack, Heading, useToast, Text, Select } from '@chakra-ui/react';
 import Layout from "../Layout";
+import { useFormik } from 'formik';
 import axios from 'axios'; // Make sure to install axios if not already done
 import { useLocation } from "react-router-dom";
 
@@ -79,43 +80,107 @@ export default function ProfileManagement() {
 
   return (
     <Layout>
-      <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" maxWidth="400px" margin="auto" mt={5}>
-        <VStack spacing={4} as="form" onSubmit={handleSubmit}>
-          <Heading size="lg">Manage Your Profile</Heading>
-          <FormControl id="username">
-            <FormLabel>Username</FormLabel>
-            <Input type="text" name="username" value={username} onChange={handleChange} readOnly/>
+      <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" maxWidth="500px" margin="auto" mt={5} bgColor="white">
+        <VStack spacing={3} as="form" onSubmit={handleSubmit}>
+          <Heading size="md" justify-content="flex-end">My Profile</Heading>
+          <FormControl display="flex" alignItems="center" justifyContent="space-between" >
+            <FormLabel width="40%">Username</FormLabel>
+            <Input  type="text" name="username" value={username} readOnly              
+            sx={{
+                _readOnly: {
+                  bg: 'gray.100', // Light gray background for readonly fields
+                  color: 'gray.600', // Darker text color for contrast
+                  cursor: 'not-allowed'
+                }
+              }}/>
           </FormControl>
-          <FormControl id="firstName">
-            <FormLabel>First Name</FormLabel>
+
+          <FormControl id="firstName" display = "flex" alignItems="center">
+            <FormLabel width="40%">First Name</FormLabel>
             <Input type="text" name="firstName" value={formData.firstname || ''} onChange={handleChange} />
           </FormControl>
-          <FormControl id="lastName">
-            <FormLabel>Last Name</FormLabel>
+
+          <FormControl id="lastName" display = "flex" alignItems="center">
+            <FormLabel width="40%">Last Name</FormLabel>
             <Input type="text" name="lastName" value={formData.lastname || ''} onChange={handleChange} />
           </FormControl>
-          <FormControl id="email">
-            <FormLabel>Email</FormLabel>
+          <FormControl id="email" display = "flex" alignItems="center">
+            <FormLabel width="40%">Email</FormLabel>
             <Input type="email" name="email" value={formData.email || ''} onChange={handleChange} />
           </FormControl>
-          <FormControl id="add1">
-            <FormLabel>Address 1</FormLabel>
+          <FormControl id="add1" display = "flex" alignItems="center">
+            <FormLabel width="40%">Address 1</FormLabel>
             <Input type="text" name="add1" value={formData.add1 || ''} onChange={handleChange} />
           </FormControl>
-          <FormControl id="add2">
-            <FormLabel>Email</FormLabel>
+          <FormControl id="add2" display = "flex" alignItems="center">
+            <FormLabel width="40%">Address 2</FormLabel>
             <Input type="text" name="add2" value={formData.add2 || ''} onChange={handleChange} />
           </FormControl>
-          <FormControl id="city">
-            <FormLabel>City</FormLabel>
+          <FormControl id="city" display = "flex" alignItems="center">
+            <FormLabel width="40%">City</FormLabel>
             <Input type="text" name="city" value={formData.city || '' } onChange={handleChange} />
           </FormControl>
-          <FormControl id="state">
-            <FormLabel>City</FormLabel>
-            <Input type="text" name="state" value={formData.state|| ''} onChange={handleChange} />
+          <FormControl id="state" display = "flex" alignItems="center">
+            <FormLabel width="40%">State</FormLabel>
+            <Select 
+                        placeholder='Select state'
+                        name="state"
+                        onChange={handleChange}
+                        value={formData.state|| ''}>
+                            <option> AL </option>
+                            <option> AK </option>
+                            <option> AZ </option>
+                            <option> AR </option>
+                            <option> CA </option>
+                            <option> CO </option>
+                            <option> CT </option>
+                            <option> DE </option>
+                            <option> FL </option>
+                            <option> GA </option>
+                            <option> HI </option>
+                            <option> ID </option>
+                            <option> IL </option>
+                            <option> IN</option>
+                            <option> IA </option>
+                            <option> KS </option>
+                            <option> KY </option>
+                            <option> LA </option>
+                            <option> ME </option>
+                            <option> MD </option>
+                            <option> MA </option>
+                            <option> MI </option>
+                            <option> MN </option>
+                            <option> MS </option>
+                            <option> MO </option>
+                            <option> MT </option>
+                            <option> NE </option>
+                            <option> NE </option>
+                            <option> NH </option>
+                            <option> NJ </option>
+                            <option> NM </option>
+                            <option> NY </option>
+                            <option> NC </option>
+                            <option> ND </option>
+                            <option> OH </option>
+                            <option> OK </option>
+                            <option> OR </option>
+                            <option> PA </option>
+                            <option> RI </option>
+                            <option> SC </option>
+                            <option> SD </option>
+                            <option> TN </option>
+                            <option> TX </option>
+                            <option> UT </option>
+                            <option> VT </option>
+                            <option> VA </option>
+                            <option> WA </option>
+                            <option> WV </option>
+                            <option> WI </option>
+                            <option> WY </option>
+                        </Select>         
           </FormControl>
-          <FormControl id="zipcode">
-            <FormLabel>City</FormLabel>
+          <FormControl id="zipcode" display = "flex" alignItems="center">
+            <FormLabel width="40%">Zipcode</FormLabel>
             <Input type="" name="zipcode" value={formData.zipcode || ''} onChange={handleChange} />
           </FormControl>
 
