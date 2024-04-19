@@ -11,6 +11,8 @@ import {
   HStack,
   Spacer,
   CardFooter,
+  Text,
+  Link
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -77,13 +79,14 @@ export default function Registration() {
         </Button>
       </Flex>
       <Card
-        alignSelf="center"
-        width="40vh"
-        height="50vh"
-        alignItems="center"
-        justifyContent="center"
-        textAlign="center"
+      alignSelf="center" 
+      width="40vh" 
+      height="55vh" 
+      alignItems="center" 
+      justifyContent="center" 
+      textAlign="center"
       >
+<VStack>
         <CardHeader>
           <Heading size="md" textAlign="center">
             Registration
@@ -99,6 +102,7 @@ export default function Registration() {
             <CardFooter>{message}</CardFooter>
           </Card>
         )}
+
         <CardBody>
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={5}>
@@ -111,6 +115,7 @@ export default function Registration() {
                   isRequired
                   onChange={formik.handleChange}
                   value={formik.values.username}
+                  borderRadius="30px"
                 />
                 <Spacer>
                 </Spacer>
@@ -124,6 +129,7 @@ export default function Registration() {
                   placeholder="Enter password"
                   onChange={formik.handleChange}
                   value={formik.values.password}
+                  borderRadius="30px"
                 />
                 <Button h="2.0rem" size="sm" onClick={handleClick1}>
                   {show1 ? "Hide" : "Show"}
@@ -133,22 +139,26 @@ export default function Registration() {
                 <Input
                   width={200}
                   type={show2 ? "text" : "password"}
-                  placeholder="Re-Enter password"
+                  placeholder="Re-enter password"
                   name="password_confirm"
                   isRequired
                   onChange={formik.handleChange}
                   value={formik.values.password_confirm}
+                  borderRadius="30px"
                 />
                 <Button h="2.0rem" size="sm" onClick={handleClick2}>
                   {show2 ? "Hide" : "Show"}
                 </Button>
               </HStack>
-              <Spacer>
-              </Spacer>
-              <Button type="submit">Submit</Button>
+              <Button borderRadius="30px" type="submit" width="100%">Register</Button>
+              <Spacer />
+              <Text>Already a member?
+            <Link as={RouterLink} to="/login" color="teal.500" mt="4"> Login now</Link>
+          </Text>
             </VStack>
           </form>
         </CardBody>
+        </VStack>
       </Card>
     </Flex>
   );
