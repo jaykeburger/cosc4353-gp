@@ -119,10 +119,10 @@ export default function ClientFuelHistory() {
   }, []);
 
   return (
-    <Layout>
-      <Card bgColor="green.300">
+    <Layout >
+      <Card bgColor="gray" justify-content="flex-end" width = "80%">
         <VStack>
-          <CardHeader bgColor="green.300" textAlign="center" fontWeight="bold">
+          <CardHeader bgColor="gray" textAlign="center" fontWeight="bold">
             Client Fueling History for {username}
           </CardHeader>
           {errMessage && (

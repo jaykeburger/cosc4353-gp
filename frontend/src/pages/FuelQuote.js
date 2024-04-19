@@ -3,6 +3,7 @@ import { Flex, FormControl, FormLabel, Stack, FormHelperText, Input, Card, Butto
 import { CalendarIcon } from '@chakra-ui/icons'
 import { useFormik } from 'formik';
 import DatePicker from "react-datepicker";
+import Layout from "../Layout.js";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function FuelQuote() {
@@ -45,6 +46,7 @@ export default function FuelQuote() {
   });
 
   return (
+    <Layout>
     <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="green.200">
         <Card alignSelf="center" width="70vh" height="65vh" alignItems="center" justifyContent="center" textAlign="center">
             <Stack bg="white">
@@ -102,5 +104,6 @@ export default function FuelQuote() {
             </Stack>
         </Card>
     </Flex>
+    </Layout>
   );
 }

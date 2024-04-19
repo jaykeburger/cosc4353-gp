@@ -1,41 +1,46 @@
-import {
-  HStack,
-  Menu,
-  MenuButton,
-  Button,
-  MenuList,
-  MenuItem,
-} from "@chakra-ui/react";
-import { FaBars } from "react-icons/fa";
+import { VStack, Box, Button, Text, useColorModeValue, useDisclosure, Drawer, DrawerContent, DrawerOverlay } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { FiMenu, FiUser, FiFileText, FiBookOpen, FiLogOut } from 'react-icons/fi';
 
-export default function Header() {
-
+export default function Sidebar() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
 
-  const handleRedirect = (path) =>{
+  const handleRedirect = (path) => {
     navigate(path);
+    onClose(); // Close the drawer when a link is clicked
   }
 
   return (
-    <HStack
-      bg="green.200"
-      height="8vh"
-      width="100vw"
-      px="3"
-      alignItems="center"
-    >
-      <Menu>
-        <MenuButton as={Button}>
-          <FaBars />
-        </MenuButton>
-        <MenuList>
-          <MenuItem onClick={() => handleRedirect('/profileInfo')}>Profile Management</MenuItem>
-          <MenuItem onClick={() => handleRedirect('/fuel-quote')}>Create Quote</MenuItem>
-          <MenuItem onClick={() => handleRedirect('/history')}>Fuel History</MenuItem>
-          <MenuItem onClick={() => handleRedirect('/')}>Logout</MenuItem>
-        </MenuList>
-      </Menu>
-    </HStack>
+    <>
+      <Button onClick={onOpen} colorScheme="teal" size="lg" variant="ghost" position="fixed" top="10px" left="10px">
+        <FiMenu />
+      </Button>
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent
+          w="150px"
+          bg={useColorModeValue('white', 'gray.900')}
+          borderRight="1px"
+          borderRightColor={useColorModeValue('gray.200', 'gray.700')}
+        >
+          <VStack p="5" spacing="10" align="stretch">
+            <Text fontSize="lg" p="5">FUEL</Text>
+            <Button fontSize="md" justifyContent="flex-start" fontWeight="light" leftIcon={<FiFileText />} onClick={() => handleRedirect('/fuel-quote')}>
+              Create Quote
+            </Button>
+            <Button fontSize="md" justifyContent="flex-start" fontWeight="light" leftIcon={<FiBookOpen />} onClick={() => handleRedirect('/history')}>
+              Fuel History
+            </Button>
+            <Button fontSize="md" justifyContent="flex-start" fontWeight="light" leftIcon={<FiUser />} onClick={() => handleRedirect('/profileInfo')}>
+              Profile
+            </Button>
+            <Button fontSize="md" justifyContent="flex-start" fontWeight="light" leftIcon={<FiLogOut />} onClick={() => handleRedirect('/')}>
+              Logout
+            </Button>
+          </VStack>
+        </DrawerContent>
+      </Drawer>
+    </>
   );
 }
