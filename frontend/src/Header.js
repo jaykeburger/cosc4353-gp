@@ -38,7 +38,7 @@ export default function Sidebar() {
           bg={isActive('/fuel-quote') ? '#ecede7' : 'white'}
           textColor={isActive('/fuel-quote') ? '#d65e4f' : 'black'}
           leftIcon={<FiFileText />}
-          onClick={() => handleRedirect('/fuel-quote')}
+          onClick={() => handleRedirect(`/fuel-quote/?username=${username}`)}
           width="full"
           borderRightRadius="0px"
           height="50px"
@@ -54,7 +54,7 @@ export default function Sidebar() {
           
           textColor={isActive('/history') ? '#d65e4f' : 'black'}
           leftIcon={<FiBookOpen />}
-          onClick={() => handleRedirect('/history')}
+          onClick={() => handleRedirect(`/history/?username=${username}`)}
           height="50px"
         >
           Fuel History
@@ -63,10 +63,10 @@ export default function Sidebar() {
           fontSize="md"
           justifyContent="flex-start"
           width="full"
-          bg={isActive('/profileInfo') ? '#ecede7' : 'white'}
-          textColor={isActive('/profileInfo') ? '#d65e4f' : 'black'}
+          bg={isActive('/profile-management') ? '#ecede7' : 'white'}
+          textColor={isActive('/profile-management') ? '#d65e4f' : 'black'}
           leftIcon={<FiUser />}
-          onClick={() => handleRedirect('/profileInfo')}
+          onClick={() => handleRedirect(`/profile-management/?username=${username}`)}
           borderRightRadius="0px"
           height="50px"
         >

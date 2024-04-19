@@ -19,6 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { Link as RouterLink } from 'react-router-dom';
 import axios from "axios";
 
+
 export default function Registration() {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);

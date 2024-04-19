@@ -21,7 +21,7 @@ const registrationRoute = require('./routes/registration');
 const profileInfoRoute = require('./routes/profileInfo');
 const login = require('./routes/login');
 const quoteCreation = require('./routes/quoteCreation');
-const profileManagement = require('./routes/profile-management');
+const profileManagement = require('./routes/profileManagement');
 
 
 // Use routes
@@ -31,7 +31,8 @@ app.use('/registration', registrationRoute);
 app.use('/profileInfo', profileInfoRoute);
 app.use('/login', login);
 app.use('/quoteCreation', quoteCreation)
-app.use('profile-management', profileManagement);
+app.use('/profile-management', profileManagement)
+
 
 // Specify the port to listen on
 const port = 3000;

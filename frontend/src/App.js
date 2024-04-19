@@ -7,7 +7,7 @@ import ProfileInfo from './pages/ProfileInfo';
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
 import FuelQuote from './pages/FuelQuote';
-import ProfileManagement from './pages/ProfileManagement'
+import ProfileManage from './pages/ProfileManage.js';
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           <Route path="/profileInfo" element={<ProfileInfo />} />
           <Route path="/login" element={<Login />} />
           <Route path="/fuel-quote" element={<FuelQuote />} />
+          <Route path="/profile-management" element={<ProfileManage />} />
           <Route path="/" element={<Homepage />} />
         </Routes>
       </BrowserRouter>
