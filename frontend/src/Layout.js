@@ -4,13 +4,12 @@ import { Flex } from "@chakra-ui/react";
 
 function Layout({ children }) {
   return (
-    <div>
+    <div style={{ backgroundColor: "#ecede7", minHeight: "100vh" }}>
       <Header />
       <Flex
         height="92vh"
         alignItems="center"
         justifyContent="center"
-        bgColor="green.200"
       >
       {children}
       </Flex>

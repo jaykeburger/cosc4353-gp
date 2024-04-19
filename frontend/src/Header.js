@@ -1,46 +1,91 @@
-import { VStack, Box, Button, Text, useColorModeValue, useDisclosure, Drawer, DrawerContent, DrawerOverlay } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-import { FiMenu, FiUser, FiFileText, FiBookOpen, FiLogOut } from 'react-icons/fi';
+import React from "react";
+import { VStack, Box, Button, Text, useColorModeValue } from "@chakra-ui/react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { FiUser, FiFileText, FiBookOpen, FiLogOut } from 'react-icons/fi';
 
 export default function Sidebar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleRedirect = (path) => {
     navigate(path);
-    onClose(); // Close the drawer when a link is clicked
-  }
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const username = new URLSearchParams(location.search).get('username');
 
   return (
-    <>
-      <Button onClick={onOpen} colorScheme="teal" size="lg" variant="ghost" position="fixed" top="10px" left="10px">
-        <FiMenu />
-      </Button>
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
-        <DrawerOverlay />
-        <DrawerContent
-          w="150px"
-          bg={useColorModeValue('white', 'gray.900')}
-          borderRight="1px"
-          borderRightColor={useColorModeValue('gray.200', 'gray.700')}
+    <Box
+      w="190px"
+      p="5"
+      color="black"
+      bg={useColorModeValue('white', 'gray.900')}
+      h="95vh"
+      position="fixed"
+      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
+      margin="15px"
+      borderBottomLeftRadius="30px"
+      paddingRight="0px;"
+    >
+      <VStack spacing="10" align="stretch">
+        <Text>Welcome, {username}</Text>
+        <Button
+          fontSize="md"
+          justifyContent="flex-start"
+          bg={isActive('/fuel-quote') ? '#ecede7' : 'white'}
+          textColor={isActive('/fuel-quote') ? '#d65e4f' : 'black'}
+          leftIcon={<FiFileText />}
+          onClick={() => handleRedirect('/fuel-quote')}
+          width="full"
+          borderRightRadius="0px"
+          height="50px"
         >
-          <VStack p="5" spacing="10" align="stretch">
-            <Text fontSize="lg" p="5">FUEL</Text>
-            <Button fontSize="md" justifyContent="flex-start" fontWeight="light" leftIcon={<FiFileText />} onClick={() => handleRedirect('/fuel-quote')}>
-              Create Quote
-            </Button>
-            <Button fontSize="md" justifyContent="flex-start" fontWeight="light" leftIcon={<FiBookOpen />} onClick={() => handleRedirect('/history')}>
-              Fuel History
-            </Button>
-            <Button fontSize="md" justifyContent="flex-start" fontWeight="light" leftIcon={<FiUser />} onClick={() => handleRedirect('/profileInfo')}>
-              Profile
-            </Button>
-            <Button fontSize="md" justifyContent="flex-start" fontWeight="light" leftIcon={<FiLogOut />} onClick={() => handleRedirect('/')}>
-              Logout
-            </Button>
-          </VStack>
-        </DrawerContent>
-      </Drawer>
-    </>
+          Create Quote
+        </Button>
+        <Button
+          fontSize="md"
+          justifyContent="flex-start"
+          width="full"
+          borderRightRadius="0px"
+          bg={isActive('/history') ? '#ecede7' : 'white'}
+          
+          textColor={isActive('/history') ? '#d65e4f' : 'black'}
+          leftIcon={<FiBookOpen />}
+          onClick={() => handleRedirect('/history')}
+          height="50px"
+        >
+          Fuel History
+        </Button>
+        <Button
+          fontSize="md"
+          justifyContent="flex-start"
+          width="full"
+          bg={isActive('/profileInfo') ? '#ecede7' : 'white'}
+          textColor={isActive('/profileInfo') ? '#d65e4f' : 'black'}
+          leftIcon={<FiUser />}
+          onClick={() => handleRedirect('/profileInfo')}
+          borderRightRadius="0px"
+          height="50px"
+        >
+          Profile
+        </Button>
+        <Button
+          fontSize="md"
+          justifyContent="flex-start"
+          width="full"
+          bg={isActive('/') ? '#ecede7' : 'white'}
+          textColor={isActive('/') ? '#d65e4f' : 'black'}
+          leftIcon={<FiLogOut />}
+          onClick={() => handleRedirect('/')}
+          borderRightRadius="0px"
+          height="50px"
+        >
+          Logout
+        </Button>
+      </VStack>
+    </Box>
   );
 }

@@ -7,6 +7,7 @@ import ProfileInfo from './pages/ProfileInfo';
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
 import FuelQuote from './pages/FuelQuote';
+import ProfileManagement from './pages/ProfileManagement'
 
 function App() {
   return (
