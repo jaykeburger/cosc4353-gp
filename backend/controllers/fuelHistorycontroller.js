@@ -7,11 +7,11 @@ const connection = mysql.createConnection(config);
 connection.connect((err) => {
 	if (err) {
 		{
-			console.error('Error connecting to MySQL server:', err);
+			// console.error('Error connecting to MySQL server:', err);
 			return;
 		}
 	}
-	console.log('Fuel History connected');
+	// console.log('Fuel History connected');
 });
 
 // function getHistory(callback) {
@@ -30,16 +30,16 @@ function getHistory(username, callback) {
 	);
 }
 
-function getQueryHistory(clientID, mingallons, maxgallons, minprice, maxprice, startdate, enddate, callback) {
-	connection.query(
-		'SELECT * FROM `fuelquote` WHERE `quoteCreatorID` = ? AND ',
-		[clientID, mingallons, maxgallons, minprice, maxprice, startdate, enddate],
-		callback
-	);
-}
+// function getQueryHistory(clientID, mingallons, maxgallons, minprice, maxprice, startdate, enddate, callback) {
+// 	connection.query(
+// 		'SELECT * FROM `fuelquote` WHERE `quoteCreatorID` = ? AND ',
+// 		[clientID, mingallons, maxgallons, minprice, maxprice, startdate, enddate],
+// 		callback
+// 	);
+// }
 
 
 module.exports = {
 	getHistory,
-	getQueryHistory
+	// getQueryHistory
 };

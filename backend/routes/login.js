@@ -10,23 +10,29 @@ router.use(bodyParser.urlencoded({ extended: true }));
 // define the login route
 router.post('/', (req, res) => {
     const {username, password} = req.body;
-    console.log('Login hit');
+    // console.log('Login hit');
 
-    if (!username || !password) {
-        return res.status(300).send('Username and password are required.');
+    if (!username && !password) {
+        return res.status(400).send('Username and password are required.');
     }
+    if (!username) {
+        return res.status(400).send('Username is required');
+        }
+    if (!password) {
+        return res.status(400).send('Password is required');
+        }
 
     loginController.loginUser(username, password, (err, success) => {
         if (err) {
-            console.error('Error occurred while authenticating user:', err);
+            // console.error('Error occurred while authenticating user:', err);
             return res.status(500).send('An error occurred while processing your request.');
         }
         if (!success) {
-            console.log("No success");
+            // console.log("No success");
             return res.status(401).send('Invalid username or password');
         }
         else{
-            console.log("Logged in.");
+            // console.log("Logged in.");
             res.status(200).send('User logged in successfully');
         }
     });
