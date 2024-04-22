@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for backend/routes/quoteCreation.js</title>
+    <title>Code coverage report for backend/routes/profileManagement.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">backend/routes</a> quoteCreation.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">backend/routes</a> profileManagement.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/25</span>
+                <span class='fraction'>9/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.58% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/17</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/25</span>
+                <span class='fraction'>9/21</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,11 +97,9 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
@@ -110,72 +108,62 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express');
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// routes/profileManagement.js
+&nbsp;
+const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
-const quoteCreationController = require('../controllers/fuelquoutecontroller');
+const { getInfo, updateInfo } = require('../controllers/profileManagementController');
 &nbsp;
-// Define a route
-router.post('/', (req, res) =&gt; {
-    const { gallons_requested, delivery_address, delivery_date, price, total } = req.body
-    if(!gallons_requested || gallons_requested.trim().length === 0 || isNaN(gallons_requested)) {
-        return res.status(400).send("Gallons Requested must contain numbers and cannot be empty");
-    }
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(gallons_requested &gt; 100000000) {
-<span class="cstat-no" title="statement not covered" >        return res.status(400).send("Gallons Requested must be less than 100000000");</span>
-    }
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(gallons_requested &lt; 0) {
-<span class="cstat-no" title="statement not covered" >        return res.status(400).send("Gallons must be positive");</span>
-    }
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(delivery_address &gt; 100) {
-<span class="cstat-no" title="statement not covered" >        return res.status(400).send("Delivery address must be less than 100 characters");</span>
-    }
-    if(!delivery_date || !Object.prototype.toString.call(delivery_date) === '[object Date]') {
-        return res.status(400).send("Delivery Date must not be empty and must be a valid date");
-    }
-    const username = req.query.username;
-    quoteCreationController.fuelQuote(username, <span class="fstat-no" title="function not covered" >(e</span>rr, results) =&gt; {
+// Fetch user info
+router.get('/', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+    const { username } = <span class="cstat-no" title="statement not covered" >req.query;</span>
+<span class="cstat-no" title="statement not covered" >    getInfo(username, <span class="fstat-no" title="function not covered" >(e</span>rr, user) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if (err) {</span>
-<span class="cstat-no" title="statement not covered" >            res.status(500).json({ message: 'Internal Server Error' });</span>
-        } else {
-<span class="cstat-no" title="statement not covered" >            res.status(200).json(results);</span>
+<span class="cstat-no" title="statement not covered" >            res.status(500).send({ message: 'Failed to retrieve user data' });</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
         }
+<span class="cstat-no" title="statement not covered" >        res.send(user);</span>
     });
-<span class="cstat-no" title="statement not covered" >    res.status(200).send('User profile information completed succesfully.');</span>
 });
 &nbsp;
-// export the router module so that server.js file can use it
+// Update user info
+router.post('/', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+    const { username } = <span class="cstat-no" title="statement not covered" >req.query;</span>
+<span class="cstat-no" title="statement not covered" >    updateInfo(username, req.body, <span class="fstat-no" title="function not covered" >(e</span>rr, result) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        if (err) {</span>
+<span class="cstat-no" title="statement not covered" >            res.status(500).send({ message: 'Failed to update user data' });</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        res.send(result);</span>
+    });
+});
+&nbsp;
 module.exports = router;
 &nbsp;</pre></td></tr></table></pre>
 

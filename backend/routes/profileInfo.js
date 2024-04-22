@@ -18,8 +18,7 @@ router.post('/', (req, res) => {
         return res.status(400).send("First Name must be less than 50 characters");
     }
 
-    /*
-    if (!lastname || firstname.trim().length === 0 || !/[A-Za-z]+/.test(lastname)) {
+    if (!lastname || lastname.trim().length === 0 || !/[A-Za-z]+/.test(lastname)) {
         return res.status(400).send("Last Name must contain letters and cannot be empty");
     }
     if (lastname.length > 50) {
@@ -43,10 +42,10 @@ router.post('/', (req, res) => {
     if (city.length > 100) {
         return res.status(400).send("City must be less than 100 characters");
     }
-    if (!state || add1.trim().state === 0) {
+    if (!state || state.trim().state === 0) {
         return res.status(400).send("State cannot be empty");
     }
-    if (!zipcode || add1.trim().zipcode === 0 || !/^\d+$/.test(zipcode)) {
+    if (!zipcode || zipcode.trim().zipcode === 0 || !/^\d+$/.test(zipcode)) {
         return res.status(400).send("Zipcode cannot be empty");
     }
     if (zipcode.length > 9) {
@@ -55,7 +54,7 @@ router.post('/', (req, res) => {
     if (zipcode.length < 5) {
         return res.status(400).send("Zipcode must be at least 5 characters");
     }
-*/
+
     profileController.registerInfo(username, firstname, lastname, add1, add2, city, state, zipcode, (err, results) => {
         if (err) {
             res.status(500).json({ message: 'Internal Server Error' });

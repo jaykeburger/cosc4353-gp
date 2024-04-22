@@ -1,147 +1,106 @@
 import React, { useState } from "react";
 import {
-  Flex,
+  Box,
   FormControl,
   FormLabel,
-  Stack,
-  FormHelperText,
   Input,
-  Card,
   Button,
   VStack,
+  Heading,
 } from "@chakra-ui/react";
-import { CalendarIcon } from "@chakra-ui/icons";
-import { useFormik } from "formik";
 import DatePicker from "react-datepicker";
-import Layout from "../Layout.js";
+import { useFormik } from "formik";
+import Layout from "../Layout";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function FuelQuote() {
-  const [submitted, setSubmitted] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
 
   const formik = useFormik({
     initialValues: {
       gallons: "",
       address: "324 Almeda Drive, Houston, TX 77004",
-      date: "",
       suggested_price: 2.79,
       total_due: "",
     },
-
     validate: (values) => {
       const errors = {};
       if (!/^\d+$/.test(values.gallons)) {
         errors.gallons = "Gallons must be numeric";
       }
-      if (!/^\d+$/.test(values.suggested_price)) {
-        errors.suggested_price = "Suggested Price must be numeric";
-      }
-      if (!/^\d+$/.test(values.total_due)) {
-        errors.total_due = "Total price due must be numeric";
-      }
-      if (!/[A-Za-z]/.test(values.address)) {
-        errors.city = "Address must only contain letters";
-      }
       return errors;
     },
-
     onSubmit: (values) => {
-      if (values.name === "" || values.name.includes(" ")) {
-        setSubmitted(true);
-        return;
-      }
       alert(JSON.stringify(values, null, 2));
     },
   });
 
   return (
     <Layout>
-      <Flex
-        height="100vh"
-        alignItems="center"
+      <Box
+        ml="200px"
+        p="4"
+        maxW="calc(100% - 250px)"
         justifyContent="center"
-        bgColor="green.200"
+        bgColor="white"
+        borderRadius="5px"
+        width="500px"
       >
-        <VStack>
-          <Card
-            alignSelf="center"
-            width="70vh"
-            height="65vh"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
-          >
-            <Stack bg="white">
-              <form onSubmit={formik.handleSubmit}>
-                <FormControl isRequired>
-                  <FormLabel>Gallons Requested</FormLabel>
-                  <Input
-                    width={"50vh"}
-                    type="text"
-                    name="gallons"
-                    maxLength="100"
-                    onChange={formik.handleChange}
-                    value={formik.values.gallons}
-                  />
-                </FormControl>
-                <FormControl isReadOnly>
-                  <FormLabel>Delivery Address</FormLabel>
-                  <Input
-                    type="text"
-                    name="address"
-                    maxLength={100}
-                    onChange={formik.handleChange}
-                    value={formik.values.address}
-                  />
-                </FormControl>
-                <FormControl isRequired>
-                  <FormLabel>Delivery Date</FormLabel>
-                  <DatePicker
-                    selected={startDate}
-                    customInput={<Input width={"50vh"} />}
-                    onChange={(date) => setStartDate(date)}
-                  />
-                </FormControl>
-                <FormControl isReadOnly>
-                  <FormLabel>Suggested Price</FormLabel>
-                  <Input
-                    type="text"
-                    name="city"
-                    maxLength={100}
-                    onChange={formik.handleChange}
-                    value={"$" + formik.values.suggested_price}
-                  />
-                </FormControl>
-                <FormControl isReadOnly>
-                  <FormLabel>Total Amount Due</FormLabel>
-                  <Input
-                    type="text"
-                    name="zipcode"
-                    onChange={formik.handleChange}
-                    value={
-                      "$" +
-                      formik.values.suggested_price * formik.values.gallons
-                    }
-                    onBlur={formik.handleBlur}
-                  />
-                </FormControl>
-                <Button margin={2} type="submit">
-                  Get Price
-                </Button>
-              </form>
-            </Stack>
-          </Card>
-          <Card
-          // alignSelf="center"
-          // width="70vh"
-          // height="65vh"
-          // alignItems="center"
-          // justifyContent="center"
-          // textAlign="center"
-          ></Card>
+        <VStack spacing={4} as="form" onSubmit={formik.handleSubmit}>
+          <Heading size="md">Fuel Quote Form</Heading>
+          <FormControl isRequired>
+            <FormLabel>Gallons Requested</FormLabel>
+            <Input
+              type="text"
+              name="gallons"
+              onChange={formik.handleChange}
+              value={formik.values.gallons}
+            />
+          </FormControl>
+
+          <FormControl isReadOnly>
+            <FormLabel>Delivery Address</FormLabel>
+            <Input
+              type="text"
+              name="address"
+              value={formik.values.address}
+              readOnly
+            />
+          </FormControl>
+
+
+          <FormControl isReadOnly>
+            <FormLabel>Suggested Price</FormLabel>
+            <Input
+              type="text"
+              name="suggested_price"
+              value={`$${formik.values.suggested_price.toFixed(2)}`}
+              readOnly
+            />
+          </FormControl>
+
+          <FormControl isReadOnly>
+            <FormLabel>Total Amount Due</FormLabel>
+            <Input
+              type="text"
+              name="total_due"
+              value={`$${(formik.values.gallons * formik.values.suggested_price).toFixed(2)}`}
+              readOnly
+            />
+          </FormControl>
+
+          <FormControl isRequired>
+            <FormLabel>Delivery Date</FormLabel>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              customInput={<Input />}
+            />
+          </FormControl>
+
+          <Button mt={4} colorScheme="teal" type="submit">Submit Quote</Button>
         </VStack>
-      </Flex>
+      </Box>
     </Layout>
   );
 }

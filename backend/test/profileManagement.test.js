@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../server.js');
 
 
-describe('Profile Info Endpoint', () => {
+describe('Profile Management Endpoint', () => {
   it('should return a 400 status for empty name', async () => {
     const response = await request(app).post('/profileInfo').send({ 
       name: '' 
@@ -13,7 +13,7 @@ describe('Profile Info Endpoint', () => {
 
   it('should return a 400 status for character over 50 characters', async () => {
     const response = await request(app).post('/profileInfo').send({ 
-        "firstName" : "John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe",
+        "name" : "John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe John Doe",
         "add1" : "123 Appleseed Ln",
         "add2" : "",
         "city" : "Houston",
@@ -164,7 +164,7 @@ describe('Profile Info Endpoint', () => {
       "zipcode" : "12345"
        }); 
         expect(response.status).toBe(200);
-        expect(response.text).toContain('User profile information completed successfully.');  
+        expect(response.text).toContain('User profile information completed succesfully.');  
   });
   afterAll((done) => {
     app.close(done);

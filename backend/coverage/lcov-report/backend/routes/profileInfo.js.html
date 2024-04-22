@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.16% </span>
+                <span class="strong">4.34% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/48</span>
+                <span class='fraction'>2/46</span>
             </div>
         
             
@@ -133,28 +133,25 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -189,6 +186,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -201,7 +201,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const express = require('express');
 const router = express.Router();
@@ -216,14 +216,14 @@ router.post('/', (req, res) =&gt; {
     const { username } = req.query;
     console.log('Backend Username Retrieval:', username);
 &nbsp;
-    if (!firstname || <span class="branch-1 cbranch-no" title="branch not covered" >firstname.trim().length === 0 </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >!/[A-Za-z]+/.test(firstname))</span> {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!firstname || <span class="branch-1 cbranch-no" title="branch not covered" >firstname.trim().length === 0 </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >!/[A-Za-z]+/.test(firstname))</span> {
         return res.status(400).send("First Name must contain letters and cannot be empty");
     }
-    else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="else path not taken" >E</span>if (firstname.length &lt; 0 || firstname.length &gt; 50) {</span>
+<span class="cstat-no" title="statement not covered" >    if (firstname.length &gt; 50) {</span>
 <span class="cstat-no" title="statement not covered" >        return res.status(400).send("First Name must be less than 50 characters");</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (!lastname || firstname.trim().length === 0 || !/[A-Za-z]+/.test(lastname)) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!lastname || lastname.trim().length === 0 || !/[A-Za-z]+/.test(lastname)) {</span>
 <span class="cstat-no" title="statement not covered" >        return res.status(400).send("Last Name must contain letters and cannot be empty");</span>
     }
 <span class="cstat-no" title="statement not covered" >    if (lastname.length &gt; 50) {</span>
@@ -280,7 +280,7 @@ module.exports = router;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-04-13T02:58:13.437Z
+                at 2024-04-22T19:51:22.886Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

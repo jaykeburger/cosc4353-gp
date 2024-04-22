@@ -80,7 +80,14 @@ export default function ProfileManagement() {
 
   return (
     <Layout>
-      <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" maxWidth="500px" margin="auto" mt={5} bgColor="white">
+      <Box 
+              ml="200px"
+              p="4"
+              maxW="calc(100% - 250px)"
+              justifyContent="center"
+              bgColor="white"
+              borderRadius="5px"
+              >
         <VStack spacing={3} as="form" onSubmit={handleSubmit}>
           <Heading size="md" justify-content="flex-end">My Profile</Heading>
           <FormControl display="flex" alignItems="center" justifyContent="space-between" >
@@ -184,7 +191,6 @@ export default function ProfileManagement() {
             <Input type="" name="zipcode" value={formData.zipcode || ''} onChange={handleChange} />
           </FormControl>
 
-          {/* Additional fields for address etc. */}
           <Button mt={4} colorScheme="teal" type="submit">Update Profile</Button>
         </VStack>
       </Box>
