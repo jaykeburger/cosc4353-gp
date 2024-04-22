@@ -6,14 +6,12 @@ jest.mock('mysql', () => ({
       connect: jest.fn(),
       query: jest.fn((sql, params, callback) => {
           if (sql.includes('SELECT')) {
-              // Simulate fetching user information
               if (params.includes('testuser')) {
                   callback(null, [{ firstname: 'Test', lastname: 'User', email: 'test@example.com', add1: '123 Test St', add2: '', city: 'Testville', state: 'TS', zipcode: '12345' }]);
               } else {
                   callback(new Error('User not found'), null);
               }
           } else if (sql.includes('UPDATE')) {
-              // Simulate updating user information
               callback(null, { affectedRows: 1 });
           }
       }),

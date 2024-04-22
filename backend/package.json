@@ -8,7 +8,7 @@
     "test1": "jest --detectOpenHandles",
     "coverage": "jest --coverage",
     "test-specific": "jest --testNamePattern 'Specific Test Name'",
-    "run-file": "jest test/profileManagement.test.js"
+    "run-file": "jest test/login.test.js"
 
   },
   "author": "",
