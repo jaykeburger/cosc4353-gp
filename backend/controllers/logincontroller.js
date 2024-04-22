@@ -9,7 +9,7 @@ connection.connect((err) => {
         console.error('Error connecting to MySQL server:', err);
         return;
     }
-    console.log('Login database connected');
+    //console.log('Login database connected');
 });
 
 async function loginUser(username, password, callback) {

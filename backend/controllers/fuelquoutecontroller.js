@@ -11,7 +11,7 @@ connection.connect((err) => {
 			return;
 		}
 	}
-	console.log('Database connected');
+	//console.log('Database connected');
 });
 
 function fuelQuote(clientID, gallons_requested, delivery_address, delivery_date, suggested_price, callback) {

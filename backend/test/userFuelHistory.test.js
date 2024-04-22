@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../server.js');
+const { app, server } = require('../server.js');
 
 
 describe('Fuel History Info Endpoint', () => {
@@ -97,7 +97,11 @@ describe('Fuel History Info Endpoint', () => {
 
 
   afterAll((done) => {
-    app.close(done);
-  });
+    if (server) {
+      server.close(done);  // This correctly uses the server object's close method
+    } else {
+      done();  // Safely handle cases where the server might not be defined
+    }
+  }); 
 });
   

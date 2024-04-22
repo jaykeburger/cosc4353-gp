@@ -11,16 +11,9 @@ connection.connect((err) => {
 			return;
 		}
 	}
-	console.log('Fuel History connected');
+	//console.log('Fuel History connected');
 });
 
-// function getHistory(callback) {
-// 	connection.query(
-// 		'SELECT DISTINCT doctor.doctor_id,doctor.doctor_name FROM doctor INNER JOIN office ON doctor.office_id = office.office_id WHERE office.city = ? AND doctor.doctor_specialization = ?',
-// 		[location, reason],
-// 		callback
-// 	);
-// }
 
 function getHistory(username, callback) {
 	connection.query(

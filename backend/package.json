@@ -4,8 +4,12 @@
   "description": "backend server",
   "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles",
-    "coverage": "jest --coverage"
+    "test": "jest",
+    "test1": "jest --detectOpenHandles",
+    "coverage": "jest --coverage",
+    "test-specific": "jest --testNamePattern 'Specific Test Name'",
+    "run-file": "jest test/profileManagement.test.js"
+
   },
   "author": "",
   "license": "ISC",

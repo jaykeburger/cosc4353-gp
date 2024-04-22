@@ -12,7 +12,7 @@ connection.connect((err) => {
 			return;
 		}
 	}
-	console.log('Database connected');
+	//console.log('Database connected');
 });
 
 async function registerProfile(username, password, callback) {

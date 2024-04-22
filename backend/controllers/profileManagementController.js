@@ -11,7 +11,7 @@ connection.connect((err) => {
 			return;
 		}
 	}
-	console.log('Profile Management Database connected');
+	//console.log('Profile Management Database connected');
 });
 
 // controllers/profileManagementController.js

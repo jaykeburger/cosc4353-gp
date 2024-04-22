@@ -11,7 +11,7 @@ connection.connect((err) => {
 			return;
 		}
 	}
-	console.log('User Database connected');
+	//console.log('User Database connected');
 });
 
 function registerInfo(username, firstname, lastname, add1, add2, city, state, zipcode, callback) {

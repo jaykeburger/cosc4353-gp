@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
     console.log('Login hit');
 
     if (!username || !password) {
-        return res.status(300).send('Username and password are required.');
+        return res.status(400).send('Username and password are required.');
     }
 
     loginController.loginUser(username, password, (err, success) => {
