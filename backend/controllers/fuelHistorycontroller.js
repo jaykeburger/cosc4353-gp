@@ -11,7 +11,7 @@ connection.connect((err) => {
 			return;
 		}
 	}
-	console.log('Database connected');
+	console.log('Fuel History connected');
 });
 
 // function getHistory(callback) {

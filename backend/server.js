@@ -22,6 +22,7 @@ const profileInfoRoute = require('./routes/profileInfo');
 const login = require('./routes/login');
 const quoteCreation = require('./routes/quoteCreation');
 const profileManagement = require('./routes/profileManagement');
+const priceAdjuster = require('./routes/priceAdjuster');
 
 
 // Use routes
@@ -32,6 +33,7 @@ app.use('/profileInfo', profileInfoRoute);
 app.use('/login', login);
 app.use('/quoteCreation', quoteCreation)
 app.use('/profile-management', profileManagement)
+app.use('/priceAdjuster', priceAdjuster)
 
 
 // Specify the port to listen on
