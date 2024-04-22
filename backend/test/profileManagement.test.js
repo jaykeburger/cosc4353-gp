@@ -1,8 +1,59 @@
 const request = require('supertest');
 const { app, server } = require('../server.js');
 
+jest.mock('mysql', () => ({
+  createConnection: () => ({
+      connect: jest.fn(),
+      query: jest.fn((sql, params, callback) => {
+          if (sql.includes('SELECT')) {
+              if (params.includes('testuser')) {
+                  callback(null, [{ firstname: 'Test', lastname: 'User', email: 'test@example.com', add1: '123 Test St', add2: '', city: 'Testville', state: 'TS', zipcode: '12345' }]);
+              } else {
+                  callback(new Error('User not found'), null);
+              }
+          } else if (sql.includes('UPDATE')) {
+              callback(null, { affectedRows: 1 });
+          }
+      }),
+      end: jest.fn()
+  })
+}));
+
+const { getInfo, updateInfo } = require('../controllers/profileManagementController');
 
 describe('Profile Management Endpoint', () => {
+  test('getInfo returns user data for existing user', done => {
+    getInfo('testuser', (err, data) => {
+        expect(err).toBeNull();
+        expect(data).toEqual(expect.objectContaining({
+            firstname: 'Test',
+            lastname: 'User',
+            email: 'test@example.com'
+        }));
+        done();
+    });
+});
+
+test('getInfo handles errors for non-existing user', done => {
+    getInfo('unknown', (err, data) => {
+        expect(err).toBeTruthy();
+        expect(data).toBeNull();
+        done();
+    });
+});
+
+test('updateInfo successfully updates user data', done => {
+    const userData = { firstname: 'Updated', lastname: 'User', email: 'updated@example.com', add1: '123 Updated St', add2: '', city: 'Updateville', state: 'US', zipcode: '12345' };
+    updateInfo('testuser', userData, (err, result) => {
+        expect(err).toBeNull();
+        expect(result).toEqual(expect.objectContaining({
+            message: 'Profile updated successfully',
+            affectedRows: 1
+        }));
+        done();
+    });
+});
+
   it('should return a 400 status for empty name', async () => {
     const response = await request(app).post('/profile-management').send({ 
       firstname: '' 
@@ -190,7 +241,7 @@ describe('Profile Management Endpoint', () => {
       "zipcode" : "12345"
        }); 
         expect(response.status).toBe(200);
-        expect(response.text).toContain('User profile information completed successfully.');  
+        expect(response.text).toContain('Profile updated successfully');  
   });
 
   afterAll((done) => {

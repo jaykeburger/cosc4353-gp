@@ -23,30 +23,42 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">68.75% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>11/16</span>
+=======
+                <span class="strong">41.17% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>7/17</span>
+>>>>>>> refs/remotes/origin/main
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">16.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">68.75% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>11/16</span>
+=======
+                <span class="strong">41.17% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>7/17</span>
+>>>>>>> refs/remotes/origin/main
             </div>
         
             
@@ -61,7 +73,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -109,6 +121,7 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,21 +132,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+>>>>>>> refs/remotes/origin/main
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,22 +182,22 @@ connection.connect((err) =&gt; {
 	//console.log('Price Adjuster Ready');
 });
 &nbsp;
-function getHistoryAndState(username, callback) {
-    connection.query(
+function <span class="fstat-no" title="function not covered" >getHistoryAndState(</span>username, callback) {
+<span class="cstat-no" title="statement not covered" >    connection.query(</span>
         "SELECT (SELECT COUNT(*) FROM fuelquote WHERE quoteCreatorID = (SELECT userID FROM user WHERE username = ?)) AS count, (SELECT state FROM user WHERE username = ?) AS state LIMIT 1;",
         [username, username],
-        (err, results) =&gt; {
-            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
+<span class="fstat-no" title="function not covered" >        (e</span>rr, results) =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (err) {</span>
 <span class="cstat-no" title="statement not covered" >                callback(err);</span>
 <span class="cstat-no" title="statement not covered" >                return;</span>
             }
 &nbsp;
-            <span class="missing-if-branch" title="if path not taken" >I</span>if (results.length === 0) {
+<span class="cstat-no" title="statement not covered" >            if (results.length === 0) {</span>
 <span class="cstat-no" title="statement not covered" >                callback(null, null); </span>// Return null if no results found
 <span class="cstat-no" title="statement not covered" >                return;</span>
             }
 &nbsp;
-            callback(null, results[0]); // Return the first (and only) result
+<span class="cstat-no" title="statement not covered" >            callback(null, results[0]); </span>// Return the first (and only) result
         }
     );
 }
@@ -187,7 +212,11 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2024-04-22T23:35:45.213Z
+=======
+                at 2024-04-22T23:31:20.226Z
+>>>>>>> refs/remotes/origin/main
             </div>
         <script src="../../prettify.js"></script>
         <script>

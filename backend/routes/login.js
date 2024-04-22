@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
     const {username, password} = req.body;
     // console.log('Login hit');
 
-    if (!username || !password) {
+    if (!username && !password) {
         return res.status(400).send('Username and password are required.');
     }
     if (!username) {
