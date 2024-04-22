@@ -11,11 +11,8 @@ connection.connect((err) => {
 			return;
 		}
 	}
-<<<<<<< HEAD
 	// console.log('Fuel History connected');
-=======
-	//console.log('Fuel History connected');
->>>>>>> origin
+
 });
 
 

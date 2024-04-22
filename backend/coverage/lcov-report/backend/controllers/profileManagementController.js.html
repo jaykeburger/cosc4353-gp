@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.54% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/22</span>
+                <span class='fraction'>18/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.54% </span>
+                <span class="strong">81.81% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/22</span>
+                <span class='fraction'>18/22</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,55 +122,46 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">4x</span>
-=======
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">5x</span>
->>>>>>> origin
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
-<span class="cline-any cline-yes">4x</span>
-=======
-<span class="cline-any cline-neutral">&nbsp;</span>
->>>>>>> origin
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,18 +187,18 @@ connection.connect((err) =&gt; {
 &nbsp;
 // controllers/profileManagementController.js
 &nbsp;
-function <span class="fstat-no" title="function not covered" >getInfo(</span>username, callback) {
-    const query = <span class="cstat-no" title="statement not covered" >`</span>
+function getInfo(username, callback) {
+    const query = `
         SELECT firstname, lastname, email, add1, add2, city, state, zipcode
         FROM user
         WHERE username = ?
     `;
-<span class="cstat-no" title="statement not covered" >    connection.query(query, [username], <span class="fstat-no" title="function not covered" >(e</span>rr, results) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        if (err) {</span>
-<span class="cstat-no" title="statement not covered" >            console.error('Failed to retrieve user data:', err);</span>
-<span class="cstat-no" title="statement not covered" >            return callback(err, null);</span>
+    connection.query(query, [username], (err, results) =&gt; {
+        if (err) {
+            console.error('Failed to retrieve user data:', err);
+            return callback(err, null);
         }
-<span class="cstat-no" title="statement not covered" >        callback(null, results[0]); </span>// assuming username is unique
+        callback(null, results[0]); // assuming username is unique
     });
 }
 &nbsp;
@@ -238,11 +229,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2024-04-22T22:55:20.424Z
-=======
-                at 2024-04-22T22:21:05.946Z
->>>>>>> origin
+                at 2024-04-22T23:23:43.118Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
