@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.85% </span>
+                <span class="strong">95.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/42</span>
+                <span class='fraction'>40/42</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.47% </span>
+                <span class="strong">95.65% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>43/46</span>
+                <span class='fraction'>44/46</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.85% </span>
+                <span class="strong">95.23% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/42</span>
+                <span class='fraction'>40/42</span>
             </div>
         
             
@@ -141,33 +141,23 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<<<<<<< HEAD
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-yes">26x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-=======
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-yes">13x</span>
->>>>>>> origin
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -195,9 +185,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -260,22 +247,14 @@ router.post('/', (req, res) =&gt; {
     if (city.length &gt; 100) {
         return res.status(400).send("City must be less than 100 characters");
     }
-<<<<<<< HEAD
-<span class="cstat-no" title="statement not covered" >    if (!state || state.trim().state === 0) {</span>
-<span class="cstat-no" title="statement not covered" >        return res.status(400).send("State cannot be empty");</span>
-    }
-<span class="cstat-no" title="statement not covered" >    if (!zipcode || zipcode.trim().zipcode === 0 || !/^\d+$/.test(zipcode)) {</span>
-<span class="cstat-no" title="statement not covered" >        return res.status(400).send("Zipcode cannot be empty");</span>
-=======
     if (!state || state.trim().state === 0) {
         return res.status(400).send("State cannot be empty");
     }
     if (!zipcode || zipcode.trim().zipcode === 0 || !/^\d+$/.test(zipcode)) {
         return res.status(400).send("Zipcode cannot be empty");
->>>>>>> origin
     }
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (zipcode.length &gt; 9) {
-<span class="cstat-no" title="statement not covered" >        return res.status(400).send("Zipcode must be less than 9 characters");</span>
+    if (zipcode.length &gt; 9) {
+        return res.status(400).send("Zipcode must be less than 9 characters");
     }
     if (zipcode.length &lt; 5) {
         return res.status(400).send("Zipcode must be at least 5 characters");
@@ -301,11 +280,7 @@ module.exports = router;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at 2024-04-22T22:55:20.424Z
-=======
-                at 2024-04-22T22:21:05.946Z
->>>>>>> origin
+                at 2024-04-22T23:35:45.213Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

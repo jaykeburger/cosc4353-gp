@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
             return;
         } 
         if (!results) { // Change 'result' to 'results'
-            console.log('No results found for username:', username);
+            // console.log('No results found for username:', username);
             return;
         }
         // console.log('Count:', results.count);

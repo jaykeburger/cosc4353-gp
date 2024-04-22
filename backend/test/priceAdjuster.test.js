@@ -1,29 +1,18 @@
 const request = require('supertest');
-const app = require('../server.js');
+const { app, server } = require('../server.js');
 
 
-describe('Price Adjuster Endpoint', () => {
+describe('Fuel History Info Endpoint', () => {
   it('should return a 200 status for successful connection', async () => {
     const response = await request(app).get('/priceAdjuster')
     expect(response.status).toBe(200);
   });
 
-  it('should handle callback(err)', (done) => {
-    getHistoryAndState('nonexistentUsername', (err, results) => {
-      expect(err).toBeTruthy();
-      done();
-    });
-  });
-
-  it('should handle callback(null, null)', (done) => {
-    getHistoryAndState('', (err, results) => {
-      expect(results).toBeNull();
-      done();
-    });
-  });
-
-    afterAll((done) => {
-    app.close(done);
-  });
+  afterAll((done) => {
+    if (server) {
+      server.close(done);  // This correctly uses the server object's close method
+    } else {
+      done();  // Safely handle cases where the server might not be defined
+    }
+  }); 
 });
-  

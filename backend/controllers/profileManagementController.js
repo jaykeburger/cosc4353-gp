@@ -7,7 +7,7 @@ const connection = mysql.createConnection(config);
 connection.connect((err) => {
 	if (err) {
 		{
-			console.error('Error connecting to MySQL server:', err);
+			// console.error('Error connecting to MySQL server:', err);
 			return;
 		}
 	}
@@ -24,7 +24,7 @@ function getInfo(username, callback) {
     `;
     connection.query(query, [username], (err, results) => {
         if (err) {
-            console.error('Failed to retrieve user data:', err);
+            // console.error('Failed to retrieve user data:', err);
             return callback(err, null);
         }
         callback(null, results[0]); // assuming username is unique
