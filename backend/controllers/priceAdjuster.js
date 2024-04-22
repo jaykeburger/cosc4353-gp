@@ -11,7 +11,7 @@ connection.connect((err) => {
 			return;
 		}
 	}
-	console.log('Price Adjuster Ready');
+	//console.log('Price Adjuster Ready');
 });
 
 function getHistoryAndState(username, callback) {

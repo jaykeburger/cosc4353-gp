@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../server.js');
+const { app, server } = require('../server.js');
 
 
 describe('Registration Info Endpoint', () => {
@@ -90,7 +90,7 @@ it('should return a 400 status for usernames with a space', async () => {
 
   it('should return a 200 status for successful entries', async () => {
     const response = await request(app).post('/registration').send({ 
-      username: 'apple',
+      username: 'apple2',
       password: '12345!',
       password_confirm: '12345!'
     });
@@ -98,7 +98,13 @@ it('should return a 400 status for usernames with a space', async () => {
   });
 
   afterAll((done) => {
-    app.close(done);
-  });
+    if (server) {
+      
+      server.close(done);  
+    } else {
+      done();
+    }
+    
+  }); 
 });
   

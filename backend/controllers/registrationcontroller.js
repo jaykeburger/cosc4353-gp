@@ -9,7 +9,7 @@ connection.connect((err) => {
 	if (err) {
 		{
 			// console.error('Error connecting to MySQL server:', err);
-            
+             
 			return;
 		}
 	}

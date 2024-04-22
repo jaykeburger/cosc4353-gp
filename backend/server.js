@@ -2,19 +2,15 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors()); // Enable CORS for all routes
-
-// parse requests of content-type - application/json
+app.use(cors());
 app.use(express.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.send('hello root node');// this gets executed when user visit http://localhost:3000/
+    res.send('hello root node');
 });
 
-// Include route files
+// Route includes
 const usersRoute = require('./routes/users');
 const fuelHistoryRoute = require('./routes/fuelHistory');
 const registrationRoute = require('./routes/registration');
@@ -24,25 +20,24 @@ const quoteCreation = require('./routes/quoteCreation');
 const profileManagement = require('./routes/profileManagement');
 const priceAdjuster = require('./routes/priceAdjuster');
 
-
-// Use routes
+// Route usage
 app.use('/users', usersRoute);
 app.use('/history', fuelHistoryRoute);
 app.use('/registration', registrationRoute);
 app.use('/profileInfo', profileInfoRoute);
 app.use('/login', login);
-app.use('/quoteCreation', quoteCreation)
-app.use('/profile-management', profileManagement)
-app.use('/priceAdjuster', priceAdjuster)
+app.use('/quoteCreation', quoteCreation);
+app.use('/profile-management', profileManagement);
+app.use('/priceAdjuster', priceAdjuster);
 
+// Define the port to listen on
+const port = process.env.PORT || 3000;
 
-// Specify the port to listen on
-const port = 3000;
+let server;
+if (process.env.NODE_ENV !== 'test') {
+    server = app.listen(port, () => {
+        console.log(`Node.js HTTP server is running on port ${port}`);
+    });
+}
 
-// Start the server
-const server = app.listen(port, () => {
-    console.log(`Node.js HTTP server is running on port ${port}`);
-});
-
-
-module.exports = server;
+module.exports = { app, server };

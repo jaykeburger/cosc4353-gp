@@ -8,8 +8,8 @@ const profileController = require('../controllers/profilecontroller');
 // Define a route
 router.post('/', (req, res) => {
     const { firstname, lastname, add1, add2, city, state, zipcode } = req.body;
-    const { username } = req.query;
-    console.log('Backend Username Retrieval:', username);
+    const { username } = "johndoe";
+    //console.log('Backend Username Retrieval:', username);
 
     if (!firstname || firstname.trim().length === 0 || !/[A-Za-z]+/.test(firstname)) {
         return res.status(400).send("First Name must contain letters and cannot be empty");

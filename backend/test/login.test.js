@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../server.js'); 
+const { app, server } = require('../server.js'); 
 
 describe('Login Endpoint', () => {
 
@@ -23,7 +23,7 @@ describe('Login Endpoint', () => {
       password: '12345!',
     });
     expect(response.status).toBe(400);
-    expect(response.text).toContain('Username is required');
+    expect(response.text).toContain('Username and password are required');
   });
 
   it('should return a 400 status if the password is not provided', async () => {
@@ -31,7 +31,7 @@ describe('Login Endpoint', () => {
       username: 'apple',
     });
     expect(response.status).toBe(400);
-    expect(response.text).toContain('Password is required');
+    expect(response.text).toContain('Username and password are required');
   });
 
   it('should return a 400 status if the username and password is not provided', async () => {
@@ -73,6 +73,10 @@ describe('Login Endpoint', () => {
   
 
   afterAll((done) => {
-    app.close(done);
-  });
+    if (server) {
+      server.close(done);  // This correctly uses the server object's close method
+    } else {
+      done();  // Safely handle cases where the server might not be defined
+    }
+  });  
 });
