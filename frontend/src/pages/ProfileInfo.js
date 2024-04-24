@@ -68,7 +68,7 @@ export default function Profile() {
   });
 
   return (
-    <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="green.200">
+    <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="#449C48">
         <Card alignSelf="center" width="40vh" height="80vh" alignItems="center" justifyContent="center" textAlign="center">
             <Stack bg="white">
             <form onSubmit={formik.handleSubmit}>
