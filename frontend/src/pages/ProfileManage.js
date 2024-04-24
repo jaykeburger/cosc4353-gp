@@ -95,21 +95,33 @@ export default function ProfileManagement() {
             <Input  type="text" name="username" value={username} readOnly              
             sx={{
                 _readOnly: {
-                  bg: 'gray.100', // Light gray background for readonly fields
-                  color: 'gray.600', // Darker text color for contrast
+                  bg: 'gray.100', 
+                  color: 'gray.600',
                   cursor: 'not-allowed'
                 }
               }}/>
           </FormControl>
 
-          <FormControl id="firstName" display = "flex" alignItems="center">
+          <FormControl id="firstName" display = "flex" alignItems="center" >
             <FormLabel width="40%">First Name</FormLabel>
-            <Input type="text" name="firstName" value={formData.firstname || ''} onChange={handleChange} />
+            <Input type="text" name="firstName" value={formData.firstname || ''} onChange={handleChange} readOnly            sx={{
+                _readOnly: {
+                  bg: 'gray.100', 
+                  color: 'gray.600',
+                  cursor: 'not-allowed'
+                }
+              }}/>
           </FormControl>
 
           <FormControl id="lastName" display = "flex" alignItems="center">
             <FormLabel width="40%">Last Name</FormLabel>
-            <Input type="text" name="lastName" value={formData.lastname || ''} onChange={handleChange} />
+            <Input type="text" name="lastName" value={formData.lastname || ''} onChange={handleChange} readOnly             sx={{
+                _readOnly: {
+                  bg: 'gray.100', 
+                  color: 'gray.600',
+                  cursor: 'not-allowed'
+                }
+              }}/>
           </FormControl>
           <FormControl id="email" display = "flex" alignItems="center">
             <FormLabel width="40%">Email</FormLabel>

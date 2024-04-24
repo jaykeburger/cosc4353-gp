@@ -57,42 +57,24 @@ end_of_record
 TN:
 SF:controllers/fuelHistorycontroller.js
 FN:7,(anonymous_0)
-<<<<<<< HEAD
 FN:18,getHistory
 FNF:2
 FNH:2
-FNDA:6,(anonymous_0)
-=======
-FN:19,getHistory
-FNF:2
-FNH:2
-FNDA:2,(anonymous_0)
->>>>>>> refs/remotes/origin/main
+FNDA:5,(anonymous_0)
 FNDA:1,getHistory
 DA:1,7
 DA:2,7
 DA:3,7
 DA:5,7
 DA:7,7
-<<<<<<< HEAD
-DA:8,6
+DA:8,5
 DA:11,0
 DA:19,1
 DA:35,7
 LF:9
 LH:8
 BRDA:8,0,0,0
-BRDA:8,0,1,6
-=======
-DA:8,2
-DA:11,0
-DA:20,1
-DA:36,7
-LF:9
-LH:8
-BRDA:8,0,0,0
-BRDA:8,0,1,2
->>>>>>> refs/remotes/origin/main
+BRDA:8,0,1,5
 BRF:2
 BRH:1
 end_of_record
@@ -102,18 +84,13 @@ FN:7,(anonymous_0)
 FN:17,fuelQuote
 FNF:2
 FNH:2
-<<<<<<< HEAD
 FNDA:5,(anonymous_0)
-=======
-FNDA:1,(anonymous_0)
->>>>>>> refs/remotes/origin/main
 FNDA:3,fuelQuote
 DA:1,7
 DA:2,7
 DA:3,7
 DA:5,7
 DA:7,7
-<<<<<<< HEAD
 DA:8,5
 DA:11,0
 DA:18,3
@@ -122,17 +99,6 @@ LF:9
 LH:8
 BRDA:8,0,0,0
 BRDA:8,0,1,5
-=======
-DA:8,1
-DA:10,0
-DA:11,0
-DA:18,3
-DA:25,7
-LF:10
-LH:8
-BRDA:8,0,0,0
-BRDA:8,0,1,1
->>>>>>> refs/remotes/origin/main
 BRF:2
 BRH:1
 end_of_record
@@ -143,11 +109,7 @@ FN:15,loginUser
 FN:19,(anonymous_2)
 FNF:3
 FNH:3
-<<<<<<< HEAD
 FNDA:5,(anonymous_0)
-=======
-FNDA:2,(anonymous_0)
->>>>>>> refs/remotes/origin/main
 FNDA:3,loginUser
 FNDA:3,(anonymous_2)
 DA:1,7
@@ -155,11 +117,7 @@ DA:2,7
 DA:3,7
 DA:5,7
 DA:7,7
-<<<<<<< HEAD
 DA:8,5
-=======
-DA:8,2
->>>>>>> refs/remotes/origin/main
 DA:10,0
 DA:16,3
 DA:20,3
@@ -174,11 +132,7 @@ DA:41,7
 LF:17
 LH:15
 BRDA:8,0,0,0
-<<<<<<< HEAD
 BRDA:8,0,1,5
-=======
-BRDA:8,0,1,2
->>>>>>> refs/remotes/origin/main
 BRDA:20,1,0,0
 BRDA:20,1,1,3
 BRDA:24,2,0,1
@@ -194,60 +148,36 @@ FN:7,(anonymous_0)
 FN:17,getHistoryAndState
 FN:21,(anonymous_2)
 FNF:3
-<<<<<<< HEAD
 FNH:3
-FNDA:6,(anonymous_0)
+FNDA:5,(anonymous_0)
 FNDA:1,getHistoryAndState
 FNDA:1,(anonymous_2)
-=======
-FNH:1
-FNDA:1,(anonymous_0)
-FNDA:0,getHistoryAndState
-FNDA:0,(anonymous_2)
->>>>>>> refs/remotes/origin/main
 DA:1,7
 DA:2,7
 DA:3,7
 DA:5,7
 DA:7,7
-<<<<<<< HEAD
-DA:8,6
+DA:8,5
 DA:11,0
 DA:18,1
 DA:22,1
-=======
-DA:8,1
-DA:10,0
-DA:11,0
-DA:18,0
-DA:22,0
->>>>>>> refs/remotes/origin/main
 DA:23,0
 DA:24,0
-DA:27,0
+DA:27,1
 DA:28,0
 DA:29,0
-<<<<<<< HEAD
 DA:32,1
 DA:38,7
 LF:16
 LH:11
 BRDA:8,0,0,0
-BRDA:8,0,1,6
-=======
-DA:32,0
-DA:38,7
-LF:17
-LH:7
-BRDA:8,0,0,0
-BRDA:8,0,1,1
->>>>>>> refs/remotes/origin/main
+BRDA:8,0,1,5
 BRDA:22,1,0,0
-BRDA:22,1,1,0
+BRDA:22,1,1,1
 BRDA:27,2,0,0
-BRDA:27,2,1,0
+BRDA:27,2,1,1
 BRF:6
-BRH:1
+BRH:3
 end_of_record
 TN:
 SF:controllers/profileManagementController.js
@@ -257,56 +187,22 @@ FN:25,(anonymous_2)
 FN:34,updateInfo
 FN:41,(anonymous_4)
 FNF:5
-<<<<<<< HEAD
-FNH:3
-FNDA:5,(anonymous_0)
-FNDA:0,getInfo
-FNDA:0,(anonymous_2)
-FNDA:1,updateInfo
-FNDA:1,(anonymous_4)
-=======
 FNH:5
-FNDA:3,(anonymous_0)
+FNDA:5,(anonymous_0)
 FNDA:2,getInfo
 FNDA:2,(anonymous_2)
 FNDA:2,updateInfo
 FNDA:2,(anonymous_4)
->>>>>>> refs/remotes/origin/main
 DA:1,7
 DA:2,7
 DA:3,7
 DA:5,7
 DA:7,7
-<<<<<<< HEAD
 DA:8,5
-DA:11,0
-DA:20,0
-DA:25,0
-DA:26,0
-DA:28,0
-DA:30,0
-DA:35,1
-DA:36,1
-DA:41,1
-DA:42,1
-DA:43,0
-DA:44,0
-DA:46,1
-DA:50,7
-LF:20
-LH:12
-BRDA:8,0,0,0
-BRDA:8,0,1,5
-BRDA:26,1,0,0
-BRDA:26,1,1,0
-=======
-DA:8,3
-DA:10,0
 DA:11,0
 DA:20,2
 DA:25,2
 DA:26,2
-DA:27,1
 DA:28,1
 DA:30,1
 DA:35,2
@@ -317,13 +213,12 @@ DA:43,0
 DA:44,0
 DA:46,2
 DA:50,7
-LF:22
-LH:18
+LF:20
+LH:17
 BRDA:8,0,0,0
-BRDA:8,0,1,3
+BRDA:8,0,1,5
 BRDA:26,1,0,1
 BRDA:26,1,1,1
->>>>>>> refs/remotes/origin/main
 BRDA:42,2,0,0
 BRDA:42,2,1,2
 BRF:6
@@ -335,22 +230,14 @@ FN:7,(anonymous_0)
 FN:17,registerInfo
 FNF:2
 FNH:2
-<<<<<<< HEAD
 FNDA:5,(anonymous_0)
-=======
-FNDA:2,(anonymous_0)
->>>>>>> refs/remotes/origin/main
 FNDA:1,registerInfo
 DA:1,7
 DA:2,7
 DA:3,7
 DA:5,7
 DA:7,7
-<<<<<<< HEAD
 DA:8,5
-=======
-DA:8,2
->>>>>>> refs/remotes/origin/main
 DA:10,0
 DA:11,0
 DA:18,1
@@ -358,11 +245,7 @@ DA:26,7
 LF:10
 LH:8
 BRDA:8,0,0,0
-<<<<<<< HEAD
 BRDA:8,0,1,5
-=======
-BRDA:8,0,1,2
->>>>>>> refs/remotes/origin/main
 BRF:2
 BRH:1
 end_of_record
@@ -374,11 +257,7 @@ FN:26,(anonymous_2)
 FN:41,checkUsername
 FNF:4
 FNH:2
-<<<<<<< HEAD
 FNDA:5,(anonymous_0)
-=======
-FNDA:2,(anonymous_0)
->>>>>>> refs/remotes/origin/main
 FNDA:0,registerProfile
 FNDA:0,(anonymous_2)
 FNDA:2,checkUsername
@@ -387,11 +266,7 @@ DA:3,7
 DA:4,7
 DA:6,7
 DA:8,7
-<<<<<<< HEAD
 DA:9,5
-=======
-DA:9,2
->>>>>>> refs/remotes/origin/main
 DA:13,0
 DA:20,0
 DA:21,0
@@ -406,11 +281,7 @@ DA:49,7
 LF:17
 LH:8
 BRDA:9,0,0,0
-<<<<<<< HEAD
 BRDA:9,0,1,5
-=======
-BRDA:9,0,1,2
->>>>>>> refs/remotes/origin/main
 BRDA:27,1,0,0
 BRDA:27,1,1,0
 BRF:4
@@ -460,15 +331,6 @@ DA:5,7
 DA:7,7
 DA:8,7
 DA:11,7
-<<<<<<< HEAD
-DA:12,8
-DA:15,8
-DA:16,5
-DA:18,3
-DA:19,0
-DA:21,3
-DA:22,0
-=======
 DA:12,6
 DA:15,6
 DA:16,1
@@ -476,7 +338,6 @@ DA:18,5
 DA:19,1
 DA:21,4
 DA:22,1
->>>>>>> refs/remotes/origin/main
 DA:25,3
 DA:26,3
 DA:28,0
@@ -485,16 +346,6 @@ DA:32,2
 DA:36,1
 DA:42,7
 LF:22
-<<<<<<< HEAD
-LH:19
-BRDA:15,0,0,5
-BRDA:15,0,1,3
-BRDA:15,1,0,8
-BRDA:15,1,1,4
-BRDA:18,2,0,0
-BRDA:18,2,1,3
-BRDA:21,3,0,0
-=======
 LH:21
 BRDA:15,0,0,1
 BRDA:15,0,1,5
@@ -503,21 +354,19 @@ BRDA:15,1,1,2
 BRDA:18,2,0,1
 BRDA:18,2,1,4
 BRDA:21,3,0,1
->>>>>>> refs/remotes/origin/main
 BRDA:21,3,1,3
 BRDA:26,4,0,0
 BRDA:26,4,1,3
 BRDA:30,5,0,2
 BRDA:30,5,1,1
 BRF:12
-BRH:9
+BRH:11
 end_of_record
 TN:
 SF:routes/priceAdjuster.js
 FN:9,(anonymous_0)
 FN:20,(anonymous_1)
 FNF:2
-<<<<<<< HEAD
 FNH:2
 FNDA:1,(anonymous_0)
 FNDA:1,(anonymous_1)
@@ -574,75 +423,6 @@ FNF:2
 FNH:2
 FNDA:14,(anonymous_0)
 FNDA:1,(anonymous_1)
-=======
-FNH:0
-FNDA:0,(anonymous_0)
-FNDA:0,(anonymous_1)
->>>>>>> refs/remotes/origin/main
-DA:1,7
-DA:2,7
-DA:3,7
-DA:4,7
-DA:5,7
-DA:6,7
-DA:9,7
-<<<<<<< HEAD
-DA:10,14
-DA:11,14
-DA:14,14
-DA:15,1
-DA:17,13
-DA:18,1
-DA:21,12
-DA:22,0
-=======
-DA:16,0
-DA:17,0
-DA:18,0
-DA:19,0
-DA:20,0
-DA:21,0
-DA:22,0
-DA:23,0
-DA:25,0
-DA:26,0
-DA:27,0
-DA:31,0
-DA:33,0
-DA:36,0
-DA:38,0
-DA:40,0
-DA:42,0
-DA:44,0
-DA:47,0
-DA:49,0
-DA:50,0
-DA:51,0
-DA:53,0
-DA:59,7
-LF:31
-LH:8
-BRDA:21,0,0,0
-BRDA:21,0,1,0
-BRDA:25,1,0,0
-BRDA:25,1,1,0
-BRDA:31,2,0,0
-BRDA:31,2,1,0
-BRDA:38,3,0,0
-BRDA:38,3,1,0
-BRDA:42,4,0,0
-BRDA:42,4,1,0
-BRF:10
-BRH:0
-end_of_record
-TN:
-SF:routes/profileInfo.js
-FN:9,(anonymous_0)
-FN:58,(anonymous_1)
-FNF:2
-FNH:2
-FNDA:14,(anonymous_0)
-FNDA:1,(anonymous_1)
 DA:1,7
 DA:2,7
 DA:3,7
@@ -658,7 +438,6 @@ DA:17,13
 DA:18,1
 DA:21,12
 DA:22,0
->>>>>>> refs/remotes/origin/main
 DA:24,12
 DA:25,1
 DA:27,11
