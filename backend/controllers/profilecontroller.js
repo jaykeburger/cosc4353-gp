@@ -11,11 +11,12 @@ connection.connect((err) => {
 			return;
 		}
 	}
-	//console.log('User Database connected');
+	console.log('User Database connected');
 });
 
 function registerInfo(username, firstname, lastname, add1, add2, city, state, zipcode, callback) {
-    connection.query(
+    console.log(username, firstname, lastname, add1, add2, city, state, zipcode);
+	connection.query(
         "INSERT INTO `user` (`username`, `firstname`, `lastname`, `add1`, `add2`, `city`, `state`, `zipcode`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
         [username, firstname, lastname, add1, add2, city, state, zipcode],
         callback
