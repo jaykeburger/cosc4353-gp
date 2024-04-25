@@ -14,14 +14,34 @@ connection.connect((err) => {
 	//console.log('Database connected');
 });
 
-function fuelQuote(clientID, gallons_requested, delivery_address, delivery_date, suggested_price, callback) {
+function fuelQuote(username, gallons, suggestedPrice, delivery_address, delivery_date, total_price, callback) {
+    console.log("To SQL:", username, gallons, suggestedPrice, delivery_address, delivery_date, total_price);
+    connection.query(
+        `INSERT INTO fuelquote(quoteCreatorID, gallonsRequested, suggestPrice, deliveryAddress, deliveryDate, ClientName, totalDue) SELECT u.userID, ?, ?, ?, ?, u.firstname, ? FROM user u WHERE u.username = ?`,
+        [gallons, suggestedPrice, delivery_address, delivery_date, total_price, username],
+        (error, results) => {
+            if (error) {
+                console.error("Error executing SQL query:", error);
+                callback(error, null);
+                return; // Return early to prevent further execution
+            }
+            // Successful query execution
+            console.log("Fuel quote inserted successfully");
+            callback(null, results);
+        }
+    );
+}
+
+
+function getAddress(username, callback) {
 	connection.query(
-        "INSERT INTO fuelquote (`gallonsRequested`, `suggestPrice`, `deliveryAddress`, `deliveryDate`) VALUES (?, ?, ?, ?)",
-		[clientID, gallons_requested, delivery_address, delivery_date, suggested_price],
+        "select add1, city, state, zipcode from user where username=?",
+		[username],
 		callback
 	);
 }
 
 module.exports = {
-	fuelQuote
+	fuelQuote,
+	getAddress
 };

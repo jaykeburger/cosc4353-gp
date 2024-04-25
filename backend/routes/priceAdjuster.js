@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     // }
 
     const username = req.query.username;
-    const gallons = req.body.gallons;
+    const gallons = req.query.gallons;
     var margin = 0.1;
     var newRate = 0.0;
     fhcontroller.getHistoryAndState(username, (err, results) => {
