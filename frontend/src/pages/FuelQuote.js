@@ -22,7 +22,6 @@ export default function FuelQuote() {
   const location = useLocation();
   const [gallons,setGallons] = useState();
   const username = new URLSearchParams(location.search).get('username');
-  const [startDate, setStartDate] = useState(new Date());
   const [submitted, setSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false)
   const [errorMessage, setErrorMessage] = useState('');
@@ -33,7 +32,7 @@ export default function FuelQuote() {
   });
   const navigate = useNavigate();
   const toast = useToast();
-
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     const getAddress = async () => {
@@ -285,9 +284,13 @@ const formik = useFormik({
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isRequired>
             <FormLabel width="40%">Delivery Date</FormLabel>
             <DatePicker wrapperClassName="datepicker"
-              selected={startDate}nom 
-              // onChange={handleDateChange}
-              customInput={<Input />}
+              selected={date} onChange={(date) => setDate(date)}
+              customInput={
+              <Input               
+                name="delivery_date"
+                onChange={formik.handleChange} 
+                value={date}
+              />}
             />
           </FormControl>
 
