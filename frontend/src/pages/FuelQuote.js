@@ -281,9 +281,9 @@ const formik = useFormik({
             />
           </FormControl>
 
-          <VStack >
+
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isRequired>
-            <FormLabel >Delivery Date</FormLabel>
+            <FormLabel width="40%">Delivery Date</FormLabel>
             <DatePicker wrapperClassName="datepicker"
               selected={startDate}nom 
               // onChange={handleDateChange}
@@ -293,7 +293,7 @@ const formik = useFormik({
 
           <Button mt={1} colorScheme="teal" onClick={getPrice}>Get Prices</Button>
 
-          </VStack>
+
 
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isReadOnly>
             <FormLabel width="40%">Suggested Price</FormLabel>
