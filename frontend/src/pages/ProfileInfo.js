@@ -48,7 +48,7 @@ export default function Profile() {
         .then((response) => {
           console.log("Response.Data:", response.data);
           if (response.status === 200) {
-            navigate(`/history?username=${username}`);
+            navigate(`/`);
             console.log("User Info Successful");
           }
           setMessage(response.data);
