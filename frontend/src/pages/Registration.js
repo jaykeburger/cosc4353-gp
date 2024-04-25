@@ -69,7 +69,7 @@ export default function Registration() {
       height="100vh"
       alignItems="center"
       justifyContent="center"
-      bgColor="#449C48"
+      bgColor="#203354"
     >
       <Flex position="absolute" top={0} right={0} p={4}justifyContent="flex-end">
         <Button as={RouterLink} to="/" colorScheme="white">
@@ -154,7 +154,7 @@ export default function Registration() {
               <Button borderRadius="30px" type="submit" width="100%">Register</Button>
               <Spacer />
               <Text>Already a member?
-            <Link as={RouterLink} to="/login" color="teal.500" mt="4"> Login now</Link>
+            <Link as={RouterLink} to="/login" color="#0096FF" mt="4"> Login now</Link>
           </Text>
             </VStack>
           </form>

@@ -45,7 +45,7 @@ export default function Login() {
 
   
   return (
-    <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="#449C48">
+    <Flex height="100vh" alignItems="center" justifyContent="center" bgColor="#203354">
       <Flex position="absolute" top={0} right={0} p={4} justifyContent="flex-end">
         <Button as={RouterLink} to="/" colorScheme="white">
           Home
@@ -97,7 +97,7 @@ export default function Login() {
               <Spacer />
               {errorMessage && <Badge colorScheme='red' mt={4}>{errorMessage}</Badge>}
               <Text>Not a member? 
-            <Link as={RouterLink} to="/register" color="teal.500" mt="4"> Register now</Link>
+            <Link as={RouterLink} to="/register" color="#0096FF" mt="4"> Register now</Link>
           </Text>
           </VStack>
           </form>
