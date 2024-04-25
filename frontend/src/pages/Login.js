@@ -19,33 +19,28 @@ export default function Login() {
     },
     onSubmit: (values) => {
       console.log("Values: ", values);
-      if (values.username === '' || values.password === '') {
-        setSubmitted(true);
-        return;
-      }
       axios.post('http://localhost:3000/login', values, {
         headers: { "Content-Type": "application/json" },
       })
       .then(response => {
         console.log("Response.data", response.data);
         if (response.status === 200){
-          console.log("Succesfully logged in!");
           navigate(`/history?username=${values.username}`);
-          console.log("Login Successful")
+   
         }
       })
       .catch((error) => {
         if (error.response && error.response.data) {
-  console.log("Error message:", error.response.data);
-  // Handle the error message as needed
-  setErrorMessage(error.response.data)
-}   
-else {
-  console.log("Error:", error.message);
-  // Handle other types of errors
-}
+          console.log("Error message:", error.response.data);
+          // Handle the error message as needed
+          setErrorMessage(error.response.data)
+        }   
+        else {
+          console.log("Error:", error.message);
+          // Handle other types of errors
+        }
       });
-  },
+    },
   });
 
   

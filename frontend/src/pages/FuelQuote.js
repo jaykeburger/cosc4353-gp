@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import axios from "axios";
+
 import {
   Box,
   FormControl,
@@ -15,6 +18,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export default function FuelQuote() {
   const [startDate, setStartDate] = useState(new Date());
+  const [submitted, setSubmitted] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -32,6 +39,31 @@ export default function FuelQuote() {
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      console.log("Values: ", values);
+      if (values.username === '' || values.password === '') {
+        setSubmitted(true);
+        return;
+      }
+      axios.post('http://localhost:3000/login', values, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then(response => {
+        console.log("Response.data", response.data);
+        if (response.status === 200){
+          navigate(`/history?username=${values.username}`);
+        }
+      })
+      .catch((error) => {
+        if (error.response && error.response.data) {
+          console.log("Error message:", error.response.data);
+          // Handle the error message as needed
+          setErrorMessage(error.response.data)
+        }   
+        else {
+          console.log("Error:", error.message);
+          // Handle other types of errors
+        }
+      });
     },
   });
 

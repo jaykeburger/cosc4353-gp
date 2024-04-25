@@ -9,7 +9,6 @@
     "coverage": "jest --coverage",
     "test-specific": "jest --testNamePattern 'Specific Test Name'",
     "run-file": "jest test/login.test.js"
-
   },
   "author": "",
   "license": "ISC",
