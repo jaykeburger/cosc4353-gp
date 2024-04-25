@@ -214,18 +214,19 @@ const formik = useFormik({
         bgColor="white"
         borderRadius="5px"
         width="500px"
+        height="660px"
       >
-        <VStack spacing={4} as="form" onSubmit={formik.handleSubmit}>
+        <VStack spacing={1} as="form" onSubmit={formik.handleSubmit}>
           <Heading size="md">Fuel Quote Form</Heading>
           <FormControl isRequired>
-            <FormLabel>Gallons Requested</FormLabel>
+            <FormLabel style={{fontSize:'15px'}}>Gallons Requested</FormLabel>
             {/* <Input
               type="text"
               name="gallons"
               onChange={formik.handleChange}
               value={formik.values.gallons}
             /> */}
-            <Input
+            <Input style={{fontSize:'15px', height:'30px'}}
               type="number"
               name="gallons"
               onChange={(e) => {
@@ -237,8 +238,8 @@ const formik = useFormik({
           </FormControl>
 
           <FormControl isReadOnly>
-            <FormLabel>Delivery Address</FormLabel>
-            <Input
+            <FormLabel style={{fontSize:'15px'}}>Delivery Address</FormLabel>
+            <Input style={{fontSize:'15px', height:'30px'}}
               type="text"
               name="address"
               value={addressData.add1}
@@ -247,8 +248,8 @@ const formik = useFormik({
           </FormControl>
 
           <FormControl isReadOnly>
-            <FormLabel>City</FormLabel>
-            <Input
+            <FormLabel style={{fontSize:'15px'}}>City</FormLabel>
+            <Input style={{fontSize:'15px', height:'30px'}}
               type="text"
               name="address"
               value={addressData.city}
@@ -257,8 +258,8 @@ const formik = useFormik({
           </FormControl>
 
           <FormControl isReadOnly>
-            <FormLabel>State</FormLabel>
-            <Input
+            <FormLabel style={{fontSize:'15px'}}>State</FormLabel>
+            <Input style={{fontSize:'15px', height:'30px'}}
               type="text"
               name="address"
               value={addressData.state}
@@ -267,8 +268,8 @@ const formik = useFormik({
           </FormControl>
 
           <FormControl isReadOnly>
-            <FormLabel>Zip Code</FormLabel>
-            <Input
+            <FormLabel style={{fontSize:'15px'}}>Zip Code</FormLabel>
+            <Input style={{fontSize:'15px', height:'30px'}}
               type="text"
               name="address"
               value={addressData.zipcode}
@@ -278,21 +279,21 @@ const formik = useFormik({
 
           <VStack>
           <FormControl isRequired>
-            <FormLabel>Delivery Date</FormLabel>
-            <DatePicker
+            <FormLabel style={{fontSize:'15px'}}>Delivery Date</FormLabel>
+            <DatePicker 
               selected={startDate}nom 
               // onChange={handleDateChange}
               customInput={<Input />}
             />
           </FormControl>
 
-          <Button mt={4} colorScheme="teal" onClick={getPrice}>Get Prices</Button>
+          <Button style={{fontSize:'15px', height:'30px'}} mt={1} colorScheme="teal" onClick={getPrice}>Get Prices</Button>
 
           </VStack>
 
           <FormControl isReadOnly>
-            <FormLabel>Suggested Price</FormLabel>
-            <Input
+            <FormLabel style={{fontSize:'15px'}}>Suggested Price</FormLabel>
+            <Input style={{fontSize:'15px', height:'30px'}}
               type="text"
               name="suggested_price"
               onChange={formik.handleChange}
@@ -302,8 +303,8 @@ const formik = useFormik({
           </FormControl>
 
           <FormControl isReadOnly>
-            <FormLabel>Total Amount Due</FormLabel>
-            <Input
+            <FormLabel style={{fontSize:'15px'}}>Total Amount Due</FormLabel>
+            <Input style={{fontSize:'15px', height:'30px'}}
               type="text"
               name="total_due"
               onChange={formik.handleChange}
@@ -313,7 +314,7 @@ const formik = useFormik({
           </FormControl>
 
 
-          <Button mt={4} colorScheme="teal" type="submit">Submit Quote</Button>
+          <Button style={{fontSize:'15px', height:'30px'}} mt={1} colorScheme="teal" type="submit">Submit Quote</Button>
         </VStack>
       </Box>
     </Layout>
