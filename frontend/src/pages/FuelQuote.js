@@ -37,8 +37,11 @@ export default function FuelQuote() {
 
   useEffect(() => {
     const getAddress = async () => {
+      console.log(username);
+
       try {
-        const response = await axios.get(`http://localhost:3000/quoteCreation/getAddress/?username=${username}`);
+        const response = await axios.get(`http://localhost:3000/profile-management/?username=${username}`);
+        console.log(response.data);
         setAddressData(response.data);
         formik.setValues({
         ...formik.values,
