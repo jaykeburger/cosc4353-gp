@@ -24,6 +24,8 @@ router.post('/', (req, res) => {
     const { username } = req.query;
     const { firstname, lastname, add1, add2, city, state, zipcode } = req.body;
 
+    console.log(req.body);
+
     if (!firstname || firstname.trim().length === 0 || !/[A-Za-z]+/.test(firstname)) {
         return res.status(400).send("First Name must contain letters and cannot be empty");
     }
@@ -58,7 +60,7 @@ router.post('/', (req, res) => {
     if (!state || state.trim().state === 0) {
         return res.status(400).send("State cannot be empty");
     }
-    if (!zipcode || zipcode.trim().zipcode === 0 || !/^\d+$/.test(zipcode)) {
+    if (!zipcode || !/^\d+$/.test(zipcode)) {
         return res.status(400).send("Zipcode cannot be empty");
     }
     if (zipcode.length > 9) {

@@ -30,7 +30,7 @@ export default function ProfileManagement() {
           if (response.data){
             console.log("Data was gotten");
           setFormData(response.data);
-          console.log("Name: ", formData.firstname, "State: ", formData.state);
+          console.log("Name: ", formData.firstname, "State: ", formData);
           console.log("Data set");
         }
 

@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
     console.log("testing:", req.body)
     var { gallons, add1, city, state, zipcode, total_due, delivery_date, suggested_price } = req.body
     const delivery_address = add1 + ', ' + city + ', ' + state + ', ' + zipcode
-    delivery_date = '2025-11-10'
+    delivery_date = '2024-5-10'
     // console.log(delivery_date)
     if(!gallons || gallons.trim().length === 0 || isNaN(gallons)) {
         return res.status(400).send("Gallons Requested must contain numbers and cannot be empty");
