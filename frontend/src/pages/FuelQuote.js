@@ -284,7 +284,7 @@ const formik = useFormik({
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isRequired>
             <FormLabel width="40%">Delivery Date</FormLabel>
             <DatePicker wrapperClassName="datepicker"
-              selected={date} onChange={(date) => setDate(date)}
+              selected={date} onChange={(date) => { setDate(date); formik.handleChange('delivery_date', date); }}
               customInput={
               <Input               
                 name="delivery_date"
