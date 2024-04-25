@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@fontsource/plus-jakarta-sans": "^5.0.20",
     "axios": "^1.6.8",
     "express": "^4.19.2",
     "mysql2": "^3.9.4",
@@ -9,5 +10,4 @@
   "scripts": {
     "start": "node app.js"
   }
-  
 }
