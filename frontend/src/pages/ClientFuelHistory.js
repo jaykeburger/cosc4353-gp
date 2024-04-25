@@ -72,8 +72,8 @@ export default function ClientFuelHistory() {
                     <Td isNumeric>{item.gallonsRequested}</Td>
                     <Td>{item.deliveryAddress}</Td>
                     <Td>{new Date(item.deliveryDate).toLocaleDateString()}</Td>
-                    <Td isNumeric>${item.suggestedPrice.toFixed(2)}</Td>
-                    <Td isNumeric>${item.totalAmountDue.toFixed(2)}</Td>
+                    <Td isNumeric>${item.suggestPrice}</Td>
+                    <Td isNumeric>${item.totalDue}</Td>
                   </Tr>
                 ))}
                 {history.length === 0 && (
