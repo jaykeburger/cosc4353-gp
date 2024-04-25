@@ -256,7 +256,7 @@ const formik = useFormik({
             />
           </FormControl>
 
-          <FormControl display="flex" alignItems="center" justifyContent="space-between"  isReadOnly>
+          <FormControl display="flex" alignItems="center" justifyContent="space-between" isReadOnly>
             <FormLabel>State</FormLabel>
             <Input
               type="text"
@@ -279,7 +279,7 @@ const formik = useFormik({
           <VStack>
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isRequired>
             <FormLabel>Delivery Date</FormLabel>
-            <DatePicker 
+            <DatePicker wrapperClassName="datepicker"
               selected={startDate}nom 
               // onChange={handleDateChange}
               customInput={<Input />}
