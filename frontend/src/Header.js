@@ -40,7 +40,7 @@ export default function Sidebar() {
           fontSize="md"
           justifyContent="flex-start"
           bg={isActive('/fuel-quote') ? '#ecede7' : 'white'}
-          textColor={isActive('/fuel-quote') ? '#d65e4f' : 'black'}
+          textColor={isActive('/fuel-quote') ? '#1E88E5' : 'black'}
           leftIcon={<FiFileText />}
           onClick={() => handleRedirect(`/fuel-quote/?username=${username}`)}
           width="full"
@@ -55,7 +55,7 @@ export default function Sidebar() {
           width="full"
           borderRightRadius="0px"
           bg={isActive('/history') ? '#ecede7' : 'white'}
-          textColor={isActive('/history') ? '#d65e4f' : 'black'}
+          textColor={isActive('/history') ? '#1E88E5' : 'black'}
           leftIcon={<FiBookOpen />}
           onClick={() => handleRedirect(`/history/?username=${username}`)}
           height="50px"
@@ -67,7 +67,7 @@ export default function Sidebar() {
           justifyContent="flex-start"
           width="full"
           bg={isActive(`/profile-management`) ? '#ecede7' : 'white'}
-          textColor={isActive(`/profile-management`) ? '#d65e4f' : 'black'}
+          textColor={isActive(`/profile-management`) ? '#1E88E5' : 'black'}
           leftIcon={<FiUser />}
           onClick={() => handleRedirect(`/profile-management/?username=${username}`)}
           borderRightRadius="0px"
@@ -80,7 +80,7 @@ export default function Sidebar() {
           justifyContent="flex-start"
           width="full"
           bg={isActive('/') ? '#ecede7' : 'white'}
-          textColor={isActive('/') ? '#d65e4f' : 'black'}
+          textColor={isActive('/') ? '#1E88E5' : 'black'}
           leftIcon={<FiLogOut />}
           onClick={() => navigate('/')}
           borderRightRadius="0px"
