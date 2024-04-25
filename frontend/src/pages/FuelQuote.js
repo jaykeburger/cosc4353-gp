@@ -70,13 +70,17 @@ export default function FuelQuote() {
     axios.get(`http://localhost:3000/priceAdjuster/?username=${username}&gallons=${gallons}`)
       .then(response => {
         console.log("Fetched data:", response.data);
-        if (response.data) {
+        if (response.data && gallons) {
           // console.log("Data was gotten");
-          setPrices(response.data);
+          const totalDue = response.data.newRate * gallons;
+          setPrices({
+            newRate: response.data.newRate,
+            newPrice: totalDue,
+          });
           formik.setValues({
         ...formik.values,
         suggested_price: response.data.newRate,
-        total_due: response.data.newPrice,
+        total_due: totalDue,
       });
           //this makes repsonse.data = formData
         }
@@ -218,7 +222,7 @@ const formik = useFormik({
         <VStack spacing={1} as="form" onSubmit={formik.handleSubmit}>
           <Heading size="md">Fuel Quote Form</Heading>
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isRequired>
-            <FormLabel width="20%" >Gallons Requested</FormLabel>
+            <FormLabel width="40%" >Gallons Requested</FormLabel>
             {/* <Input
               type="text"
               name="gallons"
@@ -231,13 +235,14 @@ const formik = useFormik({
               onChange={(e) => {
               setGallons(e.target.value);
               formik.setFieldValue('gallons', e.target.value);
+
             }}
             value={gallons}
           />
           </FormControl>
 
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isReadOnly>
-            <FormLabel>Delivery Address</FormLabel>
+            <FormLabel width="40%">Delivery Address</FormLabel>
             <Input
               type="text"
               name="address"
@@ -247,7 +252,7 @@ const formik = useFormik({
           </FormControl>
 
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isReadOnly>
-            <FormLabel>City</FormLabel>
+            <FormLabel width="40%">City</FormLabel>
             <Input
               type="text"
               name="address"
@@ -257,7 +262,7 @@ const formik = useFormik({
           </FormControl>
 
           <FormControl display="flex" alignItems="center" justifyContent="space-between" isReadOnly>
-            <FormLabel>State</FormLabel>
+            <FormLabel width="40%">State</FormLabel>
             <Input
               type="text"
               name="address"
@@ -267,7 +272,7 @@ const formik = useFormik({
           </FormControl>
 
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isReadOnly>
-            <FormLabel>Zip Code</FormLabel>
+            <FormLabel width="40%">Zip Code</FormLabel>
             <Input
               type="text"
               name="address"
@@ -276,9 +281,9 @@ const formik = useFormik({
             />
           </FormControl>
 
-          <VStack>
+          <VStack >
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isRequired>
-            <FormLabel>Delivery Date</FormLabel>
+            <FormLabel >Delivery Date</FormLabel>
             <DatePicker wrapperClassName="datepicker"
               selected={startDate}nom 
               // onChange={handleDateChange}
@@ -291,24 +296,38 @@ const formik = useFormik({
           </VStack>
 
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isReadOnly>
-            <FormLabel>Suggested Price</FormLabel>
+            <FormLabel width="40%">Suggested Price</FormLabel>
             <Input
               type="text"
               name="suggested_price"
               onChange={formik.handleChange}
               value={prices.newRate}
               readOnly
+              sx={{
+                _readOnly: {
+                  bg: 'gray.50', 
+                  color: 'gray.600',
+                  cursor: 'not-allowed'
+                }
+              }}
             />
           </FormControl>
 
           <FormControl display="flex" alignItems="center" justifyContent="space-between"  isReadOnly>
-            <FormLabel>Total Amount Due</FormLabel>
+            <FormLabel width="40%">Total Amount Due</FormLabel>
             <Input
               type="text"
               name="total_due"
               onChange={formik.handleChange}
               value={prices.newPrice}
               readOnly
+              sx={{
+                _readOnly: {
+                  bg: 'gray.50', 
+                  color: 'gray.600',
+                  cursor: 'not-allowed'
+                }
+              }}
             />
           </FormControl>
 
