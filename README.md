@@ -8,7 +8,7 @@ This web application facilitates the prediction and management of fuel prices ba
 ## Technologies Used 
 - **Frontend**: React.js, Chakra UI, Axios
 - **Backend**: Node.js, Express.js
-- ** Database**: MySQL (flexible to include NoSQL if chosen)
+- **Database**: MySQL (flexible to include NoSQL if chosen)
 - **Testing**: Jest (for backend unit tests), Code Coverage Tools
 - **Security**: Bcrypt for password hashing
 
@@ -27,8 +27,8 @@ This web application facilitates the prediction and management of fuel prices ba
   
 ### Cloning the Repository
 ```bash
-git clone https://github.com/yourgithub/fuel-quote-app.git
-cd fuel-quote-app
+git clone https://github.com/jaykeburger/cosc4353-gp.git
+cd cosc4353
 ```
 ### Installing Dependencies
 ```bash
