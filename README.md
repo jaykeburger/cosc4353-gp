@@ -49,7 +49,7 @@ cd frontend
 npm start
 ```
 
-##Testing
+### Testing
 ```
 npm run test
 ```
